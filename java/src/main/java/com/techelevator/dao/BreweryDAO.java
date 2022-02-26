@@ -6,9 +6,8 @@ import java.util.List;
 public interface BreweryDAO {
 
     public List<Brewery> getAllBreweries ();
-    public Brewery getBreweryWithID (Long userId);
+    public Brewery getBreweryWithId (Long userId);
     public String updateBrewery (Brewery brewery);
-    public boolean createBrewery (String name, String street, String city,String state,
-                                  String postalCode, String country, String websiteUrl,
+    public boolean createBrewery (String name, String address, String websiteUrl,
                                   String phone, String description, Long userId);
 }

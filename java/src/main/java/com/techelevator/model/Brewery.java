@@ -3,28 +3,21 @@ package com.techelevator.model;
 public class Brewery {
     private int id;
     private String name;
-    private String street;
-    private String city;
-    private String state;
-    private String postalCode;
-    private String country;
+    private String address;
     private String websiteUrl;
     private String phone;
+    private String email;
     private String description;
     private Long userId;
 
-    public Brewery(int id, String name, String street, String city, String state,
-                   String postalCode, String country, String websiteUrl, String phone,
-                   String description, Long userId) {
+    public Brewery(int id, String name, String address, String websiteUrl, String phone,
+                   String email, String description, Long userId) {
         this.id = id;
         this.name = name;
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.postalCode = postalCode;
-        this.country = country;
+        this.address = address;
         this.websiteUrl = websiteUrl;
         this.phone = phone;
+        this.email = email;
         this.description = description;
         this.userId = userId;
     }
@@ -45,44 +38,12 @@ public class Brewery {
         this.name = name;
     }
 
-    public String getStreet() {
-        return street;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getWebsiteUrl() {
@@ -99,6 +60,14 @@ public class Brewery {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDescription() {
