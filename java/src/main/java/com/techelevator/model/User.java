@@ -15,14 +15,20 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private String brewer;
+   private String beerLover;
+   private String administrator;
 
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String password, String authorities, String brewer, String beerLover, String administrator) {
       this.id = id;
       this.username = username;
       this.password = password;
       this.activated = true;
+      this.brewer = brewer;
+      this.beerLover = beerLover;
+      this.administrator = administrator;
    }
 
    public Long getId() {
@@ -63,6 +69,30 @@ public class User {
 
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
+   }
+
+   public String getBrewer() {
+      return brewer;
+   }
+
+   public void setBrewer(String brewer) {
+      this.brewer = brewer;
+   }
+
+   public String getBeerLover() {
+      return beerLover;
+   }
+
+   public void setBeerLover(String beerLover) {
+      this.beerLover = beerLover;
+   }
+
+   public String getAdministrator() {
+      return administrator;
+   }
+
+   public void setAdministrator(String administrator) {
+      this.administrator = administrator;
    }
 
    public void setAuthorities(String authorities) {
