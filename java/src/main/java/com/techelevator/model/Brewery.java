@@ -11,9 +11,11 @@ public class Brewery {
     private String websiteUrl;
     private String phone;
     private String description;
-    private int userId;
+    private Long userId;
 
-    public Brewery(int id, String name, String street, String city, String state, String postalCode, String country, String websiteUrl, String phone, String description, int userId) {
+    public Brewery(int id, String name, String street, String city, String state,
+                   String postalCode, String country, String websiteUrl, String phone,
+                   String description, Long userId) {
         this.id = id;
         this.name = name;
         this.street = street;
@@ -107,11 +109,11 @@ public class Brewery {
         this.description = description;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

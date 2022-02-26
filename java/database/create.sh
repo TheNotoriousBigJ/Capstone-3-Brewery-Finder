@@ -1,5 +1,5 @@
 #!/bin/bash
-BASEDIR=$(dirname $0)
+BASEDIR=$(pwd)
 DATABASE=final_capstone
 psql -U postgres -f "$BASEDIR/dropdb.sql" &&
 createdb -U postgres $DATABASE &&
