@@ -95,5 +95,7 @@ CREATE TABLE reviews (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+INSERT INTO breweries (name,address,websiteUrl,phone,email,description,user_id) VALUES ('Dummy','123 Fake St','thisurl.com','924-867-5309','thisemail@gmail.com','We are a brewery','1');
+
 
 COMMIT TRANSACTION;

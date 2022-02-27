@@ -10,6 +10,7 @@ public class Brewery {
     private String description;
     private Long userId;
 
+
     public Brewery(int breweryId, String name, String address, String websiteUrl, String phone,
                    String email, String description, Long userId) {
         this.breweryId = breweryId;
@@ -21,6 +22,7 @@ public class Brewery {
         this.description = description;
         this.userId = userId;
     }
+
 
     public int getBreweryId() {
         return breweryId;
