@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 import { addToken, addUser } from '../../Redux/actionCreators'
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
-import BreweryList from '../Brewery/breweryList'
 
 
 
@@ -73,9 +72,6 @@ class Login extends Component {
                     />
                     <Link to="/register">Need an account?</Link>
                     <button type="submit" onClick={this.handleLogin}>Sign in</button>
-                </div>
-                <div>
-                    <BreweryList />
                 </div>
             </>
         )

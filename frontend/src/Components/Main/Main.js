@@ -3,25 +3,32 @@ import {Switch, Route, Redirect, Link, Router} from 'react-router-dom'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
-import {addToken, deleteUser} from '../../Redux/actionCreators'
+import {addToken, deleteUser, fetchBreweries} from '../../Redux/actionCreators'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import Brewery from '../Brewery/Brewery'
 
 const mapStateToProps = state => {
     return {
         token: state.token,
-        user: state.user
+        user: state.user,
+        breweries: state.breweries
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
     addToken: () => { dispatch(addToken()) },
-    deleteUser: () => { dispatch(deleteUser())}
+    deleteUser: () => { dispatch(deleteUser())},
+    fetchBreweries: () => {dispatch(fetchBreweries())}
 });
 
 class Main extends Component {
     constructor(props){
         super(props);
+    }
+
+    componentDidMount() {
+        this.props.fetchBreweries();
     }
 
     handleLogout = () => {
@@ -43,9 +50,10 @@ class Main extends Component {
                         <Link to='/login'>Home | </Link>
                 }
                 <Switch>
-                    <Route path='/login' component={() => <Login/>}/>
+                    <Route path='/login' component={() => <Login />}/>
                     <Route path='/register'component={() => <Register/>}/>
                     <Route path='/home' component={this.props.token.token !== undefined ? () => <Home/> : null}/>
+                    <Route path='/brewery' component={() => <Brewery breweries={this.props.breweries} />}/>
                     <Redirect to='/login'/>
                 </Switch>
             </div>
