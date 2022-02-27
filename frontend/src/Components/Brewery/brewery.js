@@ -13,7 +13,7 @@ function RenderBrewery({ brewery }) {
                 <Card.Text>
                     {brewery.description}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Go to Brewery Page</Button>
             </Card.Body>
         </Card>
     )
@@ -50,7 +50,7 @@ const Breweries = (props) => {
     else
         return (
             <div className="container">
-                <div className="row">
+                <div>
                     <Breadcrumb>
                         <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>

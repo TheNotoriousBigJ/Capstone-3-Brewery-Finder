@@ -53,3 +53,42 @@ export const addBreweries = (breweries) => ({
     type: ActionTypes.ADD_BREWERIES,
     payload: breweries
 });
+
+export const fetchBeers = () => (dispatch) => {
+    dispatch(beersLoading(true));
+
+    return fetch(baseUrl + '/beer')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            }
+            else {
+                var error = new Error('Error ' + response.status
+                    + ': ' + response.statusText)
+                error.response = response;
+                throw error;
+            }
+        },
+            error => {
+                var errmess = new Error(error.message);
+                throw errmess;
+            })
+        .then(response => response.json())
+        .then(beers => dispatch(addBeers(beers)))
+        .catch(error => dispatch(beersFailed(error.message)));
+
+}
+
+export const beersLoading = () => ({
+    type: ActionTypes.BEERS_LOADING
+});
+
+export const beersFailed = (errmess) => ({
+    type: ActionTypes.BEERS_FAILED,
+    payload: errmess
+});
+
+export const addBeers = (breweries) => ({
+    type: ActionTypes.ADD_BEERS,
+    payload: beers
+});

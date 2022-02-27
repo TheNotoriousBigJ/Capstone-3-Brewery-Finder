@@ -35,6 +35,7 @@ public class JdbcBreweryDao implements BreweryDAO {
 
     @Override
     public Brewery getBreweryWithId(Long userId) {
+
         return null;
     }
 

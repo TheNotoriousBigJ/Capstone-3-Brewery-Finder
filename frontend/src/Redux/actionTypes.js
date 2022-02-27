@@ -4,3 +4,6 @@ export const DELETE_USER = 'DELETE_USER';
 export const ADD_BREWERIES = 'ADD_BREWERIES';
 export const BREWERIES_LOADING = 'BREWERIES_LOADING';
 export const BREWERIES_FAILED = 'BREWERIES_FAILED';
+export const ADD_BEERS = 'ADD_BEERS';
+export const BEERS_LOADING = 'BEERS_LOADING';
+export const BEERS_FAILED = 'BEERS_FAILED';

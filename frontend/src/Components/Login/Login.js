@@ -71,7 +71,9 @@ class Login extends Component {
                         required
                     />
                     <Link to="/register">Need an account?</Link>
-                    <button type="submit" onClick={this.handleLogin}>Sign in</button>
+                    <Link to={'/home'}>
+                        <button type="submit" onClick={this.handleLogin}>Sign in</button>\
+                    </Link>
                 </div>
             </>
         )
