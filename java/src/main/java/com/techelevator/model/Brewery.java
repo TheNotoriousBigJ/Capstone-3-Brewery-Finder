@@ -1,7 +1,7 @@
 package com.techelevator.model;
 
 public class Brewery {
-    private int id;
+    private int breweryId;
     private String name;
     private String address;
     private String websiteUrl;
@@ -10,24 +10,12 @@ public class Brewery {
     private String description;
     private Long userId;
 
-    public Brewery(int id, String name, String address, String websiteUrl, String phone,
-                   String email, String description, Long userId) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.websiteUrl = websiteUrl;
-        this.phone = phone;
-        this.email = email;
-        this.description = description;
-        this.userId = userId;
-    }
-
     public int getBreweryId() {
-        return id;
+        return breweryId;
     }
 
     public void setBreweryId(int id) {
-        this.id = id;
+        this.breweryId = breweryId;
     }
 
     public String getName() {
