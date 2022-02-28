@@ -11,8 +11,7 @@ public class Brewery {
     private Long userId;
 
 
-    public Brewery(int breweryId, String name, String address, String websiteUrl, String phone,
-                   String email, String description, Long userId) {
+    public Brewery() {
         this.breweryId = breweryId;
         this.name = name;
         this.address = address;
@@ -23,12 +22,11 @@ public class Brewery {
         this.userId = userId;
     }
 
-
     public int getBreweryId() {
         return breweryId;
     }
 
-    public void setBreweryId(int id) {
+    public void setBreweryId(int breweryId) {
         this.breweryId = breweryId;
     }
 
