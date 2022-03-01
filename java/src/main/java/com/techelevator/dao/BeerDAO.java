@@ -9,10 +9,9 @@ import java.util.List;
 
 public interface BeerDAO {
 
-    public List<Beer> getAllBeersWithId (int breweryId);
-    public String updateBeer (Beer beer);
-    public boolean createBeer (String name, String image, String description, String beerType, String abv);
+    public List<Beer> getAllBeers ();
+    public Boolean updateBeer (Beer beer);
+    public Beer createBeer (Beer beer);
     public void deleteBeer(int beerId);
-
 }
 

@@ -36,13 +36,13 @@ public class JdbcBeerDao implements BeerDAO {
     }
 
     @Override
-    public String updateBeer(Beer beer) {
+    public Boolean updateBeer(Beer beer) {
         return null;
     }
 
     @Override
-    public boolean createBeer(String name, String image, String description, String beerType, String abv) {
-        return false;
+    public Beer createBeer(Beer beer) {
+        return beer;
     }
 
     @Override
