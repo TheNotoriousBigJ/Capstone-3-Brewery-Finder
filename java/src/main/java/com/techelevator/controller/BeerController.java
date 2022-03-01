@@ -57,14 +57,4 @@ public class BeerController {
     public void deleteBeer(int beerId) {
         beerDAO.deleteBeer(beerId);
     }
-
-
-
-
-
-
-
-
-
-
 }
