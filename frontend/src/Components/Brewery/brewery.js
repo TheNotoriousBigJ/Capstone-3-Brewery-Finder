@@ -7,14 +7,16 @@ import { Link } from 'react-router-dom';
 function RenderBrewery({ brewery }) {
     return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Title>{brewery.name}</Card.Title>
-                <Card.Text>
-                    {brewery.description}
-                </Card.Text>
-                <Button variant="primary">Go to Brewery Page</Button>
-            </Card.Body>
+            <Link to={`/brewery/${brewery.breweryId}`} >
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                    <Card.Title>{brewery.name}</Card.Title>
+                    <Card.Text>
+                        {brewery.description}
+                    </Card.Text>
+                    <Button variant="primary">Go to Brewery Page</Button>
+                </Card.Body>
+            </Link>
         </Card>
     )
 }

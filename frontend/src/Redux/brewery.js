@@ -23,6 +23,10 @@ export const Brewery = (state = {
                 isLoading: false,
                 errMess: action.payload,
                 breweries: []};
+                
+        case ActionTypes.CREATE_BREWERY:
+            let brewery = action.payload;
+            return {...state, breweries: state.breweries.concat(brewery)};                
 
         default:
             return state;
