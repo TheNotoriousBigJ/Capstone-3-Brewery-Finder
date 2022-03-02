@@ -8,6 +8,8 @@ public class Brewery {
     private String phone;
     private String email;
     private String description;
+    private String hoursOfOperation;
+    private String daysOfOperation;
     private Long userId;
 
 
@@ -19,6 +21,8 @@ public class Brewery {
         this.phone = phone;
         this.email = email;
         this.description = description;
+        this.hoursOfOperation = hoursOfOperation;
+        this.daysOfOperation = daysOfOperation;
         this.userId = userId;
     }
 
@@ -76,6 +80,22 @@ public class Brewery {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getHoursOfOperation() {
+        return hoursOfOperation;
+    }
+
+    public void setHoursOfOperation(String hoursOfOperation) {
+        this.hoursOfOperation = hoursOfOperation;
+    }
+
+    public String getDaysOfOperation() {
+        return daysOfOperation;
+    }
+
+    public void setDaysOfOperation(String daysOfOperation) {
+        this.daysOfOperation = daysOfOperation;
     }
 
     public Long getUserId() {

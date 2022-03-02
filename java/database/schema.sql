@@ -65,6 +65,8 @@ CREATE TABLE breweries (
     phone varchar(15),
     email varchar(30),
     description varchar(500) NOT NULL,
+    hoursOfOperation varchar(20),
+    daysOfOperation varchar(50),
     user_id int,
 	CONSTRAINT PK_brewery_id PRIMARY KEY (brewery_id),
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
@@ -95,7 +97,7 @@ CREATE TABLE reviews (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO breweries (name,address,websiteUrl,phone,email,description,user_id) VALUES ('Dummy','123 Fake St','thisurl.com','924-867-5309','thisemail@gmail.com','We are a brewery','1');
+INSERT INTO breweries (name,address,websiteUrl,phone,email,description,hoursOfOperation,daysOfOperation,user_id) VALUES ('Dummy','123 Fake St','thisurl.com','924-867-5309','thisemail@gmail.com','We are a brewery','12:00 PM to 2:00 AM','Monday Tuesday Wednesday Thursday, Friday, Saturday, Monday','1');
 
 
 COMMIT TRANSACTION;

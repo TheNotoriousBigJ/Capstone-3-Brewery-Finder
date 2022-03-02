@@ -34,19 +34,18 @@ public class JdbcBreweryDao implements BreweryDAO {
     }
 
     @Override
-    public Brewery getBreweryWithId(Long userId) {
-
-        return null;
-    }
-
-    @Override
     public String updateBrewery(Brewery brewery) {
         return null;
     }
 
     @Override
-    public boolean createBrewery(String name, String address, String websiteUrl, String phone, String description, Long userId) {
+    public Boolean createBrewery(Brewery brewery) {
         return false;
+    }
+
+    @Override
+    public Boolean deleteBrewery(Brewery brewery) {
+        return null;
     }
 
     private Brewery mapRowToBrewery(SqlRowSet sql) {
