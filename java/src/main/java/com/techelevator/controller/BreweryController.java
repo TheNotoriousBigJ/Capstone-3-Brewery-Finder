@@ -31,7 +31,7 @@ public class BreweryController {
 
 
     //only brewer can update the brewery
-    @RequestMapping(value = "/breweries", method = RequestMethod.PUT)
+    @RequestMapping(value = "/breweries/{breweryId}", method = RequestMethod.PUT)
     public String updateBrewery(@RequestBody Brewery brewery) {
         return breweryDAO.updateBrewery(brewery);
     }

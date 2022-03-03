@@ -45,7 +45,7 @@ public class BeerController {
     // Update a Beer
 
     @ResponseStatus(value= HttpStatus.OK)
-    @RequestMapping(value= "/beers", method = RequestMethod.PUT)
+    @RequestMapping(value= "/beers/{beerId}", method = RequestMethod.PUT)
     public Boolean updateBeer(@RequestBody Beer beer) {
         return beerDAO.updateBeer(beer);
     }
@@ -53,7 +53,7 @@ public class BeerController {
     // Delete a Beer
 
     @ResponseStatus(value= HttpStatus.NO_CONTENT)
-    @RequestMapping(value = "/beers", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/beers/{beerId}", method = RequestMethod.DELETE)
     public void deleteBeer(int beerId) {
         beerDAO.deleteBeer(beerId);
     }

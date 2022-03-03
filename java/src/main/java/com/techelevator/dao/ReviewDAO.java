@@ -9,10 +9,8 @@ public interface ReviewDAO {
 
     List<Review> getReviews(int beer_id);
 
-    void addReview(Review review);
+    public Review createReview(Review review);
 
-    void saveReview(@Valid Review review);
 
-    List<Review> searchReviewsByBeerId(int beerId);
 
 }

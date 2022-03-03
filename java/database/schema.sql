@@ -66,7 +66,7 @@ CREATE TABLE breweries (
     email varchar(30),
     description varchar(500) NOT NULL,
     hoursOfOperation varchar(20),
-    daysOfOperation varchar(50),
+    daysOfOperation varchar(70),
     user_id int,
 	CONSTRAINT PK_brewery_id PRIMARY KEY (brewery_id),
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
