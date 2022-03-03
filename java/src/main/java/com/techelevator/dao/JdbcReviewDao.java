@@ -4,11 +4,13 @@ import com.techelevator.model.Review;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcReviewDao implements ReviewDAO {
     private JdbcTemplate jdbcTemplate;
     public JdbcReviewDao(DataSource dataSource) {
@@ -18,10 +20,10 @@ public class JdbcReviewDao implements ReviewDAO {
 
     //    GET REVIEWS BY ID
     @Override
-    public List<Review> getReviews(int beer_id) {
+    public List<Review> getReviews(int beerId) {
         List<Review> reviews = new ArrayList<>();
         String sql = "SELECT * FROM reviews WHERE beer_id = ?";
-        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,beer_id);
+        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,beerId);
 
         while(results.next()){
             Review review = mapRowToReview(results);

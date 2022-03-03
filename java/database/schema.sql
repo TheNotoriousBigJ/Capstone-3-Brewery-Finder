@@ -74,6 +74,7 @@ CREATE TABLE breweries (
 
 CREATE TABLE beers (
 	beer_id int DEFAULT nextval('seq_beer_id'::regclass) NOT NULL,
+	name varchar(50) NOT NULL,
 	brewery_id int NOT NULL,
 	image varchar(200) NOT NULL,
 	description varchar(500),
@@ -98,6 +99,6 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 INSERT INTO breweries (name,address,websiteUrl,phone,email,description,hoursOfOperation,daysOfOperation,user_id) VALUES ('Dummy','123 Fake St','thisurl.com','924-867-5309','thisemail@gmail.com','We are a brewery','12:00 PM to 2:00 AM','Monday Tuesday Wednesday Thursday, Friday, Saturday, Monday','1');
-
+INSERT INTO beers (name, image, description, beerType, abv, breweryId) VALUES ("coors", "img.url", "grossest beer ever", "lager", "5%", 0);
 
 COMMIT TRANSACTION;

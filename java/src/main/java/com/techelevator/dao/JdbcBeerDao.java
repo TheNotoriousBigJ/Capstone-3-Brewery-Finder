@@ -38,16 +38,16 @@ public class JdbcBeerDao implements BeerDAO {
     @Override
     public Boolean updateBeer(Beer beer) {
        String sql = "UPDATE beer"
-               + " SET name = ?, image = ?, description = ?, beerType = ?, abv = ?"
+               + " SET name = ?, image = ?, description = ?, type = ?, abv = ?"
                + " WHERE beerId = ?";
-       jdbcTemplate.update(sql, beer.getName(), beer.getImage(), beer.getDescription(), beer.getAbv());
+       jdbcTemplate.update(sql, beer);
        return updateBeer(beer);
     }
 
     @Override
     public Beer createBeer(Beer beer) {
-       String sql = "INSERT INTO beers (name, image, description, beerType, abv) + VALUES (?,?,?,?,?)";
-               jdbcTemplate.update(sql, beer.getName(), beer.getImage(), beer.getDescription(), beer.getAbv());
+       String sql = "INSERT INTO beers (name, image, description, type, abv, breweryId) + VALUES (?,?,?,?,?,?)";
+               jdbcTemplate.update(sql, beer);
                return createBeer(beer);
     }
 
@@ -65,9 +65,10 @@ public class JdbcBeerDao implements BeerDAO {
                 beer.setName(sql.getString("name"));
                 beer.setImage(sql.getString("image"));
                 beer.setDescription(sql.getString("description"));
-                beer.setBeerType(sql.getString("beer_type"));
+                beer.setType(sql.getString("type"));
                 beer.setAbv(sql.getString("abv"));
                 beer.setName(sql.getString("name"));
+                beer.setBreweryId(sql.getInt("breweryId"));
                 return beer;
             } catch (DataAccessException exception) {
                 exception.printStackTrace();

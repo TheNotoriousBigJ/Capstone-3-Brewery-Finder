@@ -5,7 +5,7 @@ public class Beer {
     private String name;
     private String image;
     private String description;
-    private String beerType;
+    private String type;
     private String abv;
     private int beerId;
     private int breweryId;
@@ -34,12 +34,12 @@ public class Beer {
         this.description = description;
     }
 
-    public String getBeerType() {
-        return beerType;
+    public String getType() {
+        return type;
     }
 
-    public void setBeerType(String beerType) {
-        this.beerType = beerType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getAbv() {
