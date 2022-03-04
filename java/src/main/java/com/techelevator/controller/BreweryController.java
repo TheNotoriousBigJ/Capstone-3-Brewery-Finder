@@ -33,7 +33,7 @@ public class BreweryController {
 
     //only brewer can update the brewery
     @ResponseStatus(value= HttpStatus.OK)
-    @RequestMapping(value = "/breweries/{breweryId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/breweries/{brewery_id}", method = RequestMethod.PUT)
     public Boolean updateBrewery(@RequestBody Brewery brewery, @PathVariable Integer brewery_id) {
         brewery.setBrewery_id(brewery_id);
         return breweryDAO.updateBrewery(brewery);
