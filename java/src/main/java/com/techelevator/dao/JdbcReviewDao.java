@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Beer;
 import com.techelevator.model.Review;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,42 +19,65 @@ public class JdbcReviewDao implements ReviewDAO {
     }
 
 
-    //    GET REVIEWS BY ID
+    //    GET REVIEWS
     @Override
-    public List<Review> getReviews(int beerId) {
+    public List<Review> getAllReviews() {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT * FROM reviews WHERE beer_id = ?";
-        SqlRowSet results= jdbcTemplate.queryForRowSet(sql,beerId);
+        String sql = "SELECT * FROM reviews";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
         while(results.next()){
-            Review review = mapRowToReview(results);
-            reviews.add(review);
+            reviews.add(mapRowToReview(results));
         }
         return reviews;
     }
 
+    @Override
+    public Boolean updateReview(Review review) {
+        String sql = "UPDATE reviews"
+                + " SET beer_id = ?, user_id = ?, review = ?, rating = ?"
+                + " WHERE review_id = ?";
+//       added beer id at the end
+        int count =  jdbcTemplate.update(sql, review.getBeer_id(), review.getUser_id(), review.getReview(), review.getRating(), review.getReviewId());
+        if (count > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        //return updateBeer(beer);
+    }
 
 
     //ADD A REVIEW
     @Override
-    public Review createReview(Review review) {
-        String sql = "INSERT INTO reviews (reviewText, rating, beerId, userId) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, review.getReviewText(), review.getRating(),review.getBeerId(), review.getUserId());
-        return createReview(review);
+    public Boolean createReview(Review review) {
+        String sql = "INSERT INTO reviews (review, rating, beer_id, user_id) VALUES (?, ?, ?, ?)";
+        int count = jdbcTemplate.update(sql, review.getReview(), review.getRating(), review.getBeer_id(), review.getUser_id());
+
+        if (count > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    @Override
+    public void deleteReview(int review_id) {
+        String sqlDeleteReview = "DELETE FROM reviews where review_id = ?";
+        jdbcTemplate.update(sqlDeleteReview, review_id);
 
-
+    }
 
 
     private Review mapRowToReview(SqlRowSet sql){
         try{
             Review review = new Review();
             review.setReviewId(sql.getInt("reviewId"));
-            review.setBeerId(sql.getInt("beerId"));
-            review.setUserId(sql.getInt("userId"));
+            review.setBeer_id(sql.getInt("beer_id"));
+            review.setUser_id(sql.getInt("user_id"));
             review.setRating(sql.getInt("rating"));
-            review.setReviewText(sql.getString("reviewText"));
+            review.setReview(sql.getString("review"));
             return review;
         } catch (DataAccessException exception){
             exception.printStackTrace();

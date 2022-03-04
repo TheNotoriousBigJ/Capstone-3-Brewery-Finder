@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,21 +32,29 @@ public class BreweryController {
 
 
     //only brewer can update the brewery
+    @ResponseStatus(value= HttpStatus.OK)
     @RequestMapping(value = "/breweries/{breweryId}", method = RequestMethod.PUT)
-    public String updateBrewery(@RequestBody Brewery brewery) {
+    public Boolean updateBrewery(@RequestBody Brewery brewery, @PathVariable Integer brewery_id) {
+        brewery.setBrewery_id(brewery_id);
         return breweryDAO.updateBrewery(brewery);
     }
 
 //    limited to only admin users
+
+    @ResponseStatus(value= HttpStatus.CREATED)
     @RequestMapping(path = "/breweries", method = RequestMethod.POST)
-    public boolean createBrewery(@RequestBody Brewery brewery){
+    public boolean createBrewery(@Valid @RequestBody Brewery brewery){
+
         return breweryDAO.createBrewery(brewery);
     }
 
+//    delete a brewery
 
-    @RequestMapping(path = "/breweries/{breweryId}", method = RequestMethod.DELETE)
-    public boolean deleteBrewery(Brewery breweryId){
-        return breweryDAO.deleteBrewery(breweryId);
+    @ResponseStatus(value= HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/breweries/{brewery_id}", method = RequestMethod.DELETE)
+    public void deleteBrewery(@PathVariable Integer brewery_id){
+
+         breweryDAO.deleteBrewery(brewery_id);
     }
 
 }

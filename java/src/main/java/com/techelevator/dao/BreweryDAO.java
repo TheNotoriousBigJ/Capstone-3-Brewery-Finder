@@ -6,7 +6,7 @@ import java.util.List;
 public interface BreweryDAO {
 
     public List<Brewery> getAllBreweries ();
-    public String updateBrewery (Brewery brewery);
+    public Boolean updateBrewery (Brewery brewery);
     public Boolean createBrewery (Brewery brewery);
-    public Boolean deleteBrewery (Brewery brewery);
+    public void deleteBrewery (int brewery_id);
 }
