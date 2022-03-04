@@ -41,7 +41,7 @@ public class ReviewController {
     @ResponseStatus(value= HttpStatus.OK)
     @RequestMapping(value= "/reviews/{review_id}", method = RequestMethod.PUT)
     public Boolean updateBeer(@RequestBody Review review, @PathVariable Integer review_id) {
-        review.setReviewId(review_id);
+        review.setReview_id(review_id);
         return reviewDAO.updateReview(review);
     }
 

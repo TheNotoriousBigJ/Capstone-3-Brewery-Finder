@@ -52,7 +52,7 @@ public class JdbcBreweryDao implements BreweryDAO {
     @Override
     public Boolean createBrewery(Brewery brewery) {
         String sql = "INSERT INTO breweries (name, address, websiteUrl, phone, email, description, hoursOfOperation, daysOfOperation, user_id) VALUES (?,?,?,?,?,?,?,?,?)";
-        int count = jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(),brewery.getWebsiteUrl(), brewery.getPhone(), brewery.getPhone(),brewery.getEmail(), brewery.getDescription(),brewery.getHoursOfOperation(), brewery.getDaysOfOperation(), brewery.getUserId());
+        int count = jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(),brewery.getWebsiteUrl(), brewery.getPhone(),brewery.getEmail(), brewery.getDescription(),brewery.getHoursOfOperation(), brewery.getDaysOfOperation(), brewery.getUserId());
         if (count > 0) {
             return true;
         }

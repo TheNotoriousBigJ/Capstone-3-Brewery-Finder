@@ -1,18 +1,18 @@
 package com.techelevator.model;
 
 public class Review {
-    private int reviewId;
+    private int review_id;
     private int beer_id;
     private int user_id;
     private int rating;
     private String review;
 
-    public int getReviewId() {
-        return reviewId;
+    public int getReview_id() {
+        return review_id;
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public void setReview_id(int review_id) {
+        this.review_id = review_id;
     }
 
     public int getBeer_id() {

@@ -38,7 +38,7 @@ public class JdbcReviewDao implements ReviewDAO {
                 + " SET beer_id = ?, user_id = ?, review = ?, rating = ?"
                 + " WHERE review_id = ?";
 //       added beer id at the end
-        int count =  jdbcTemplate.update(sql, review.getBeer_id(), review.getUser_id(), review.getReview(), review.getRating(), review.getReviewId());
+        int count =  jdbcTemplate.update(sql, review.getBeer_id(), review.getUser_id(), review.getReview(), review.getRating(), review.getReview_id());
         if (count > 0) {
             return true;
         }
@@ -73,7 +73,7 @@ public class JdbcReviewDao implements ReviewDAO {
     private Review mapRowToReview(SqlRowSet sql){
         try{
             Review review = new Review();
-            review.setReviewId(sql.getInt("reviewId"));
+            review.setReview_id(sql.getInt("review_id"));
             review.setBeer_id(sql.getInt("beer_id"));
             review.setUser_id(sql.getInt("user_id"));
             review.setRating(sql.getInt("rating"));
