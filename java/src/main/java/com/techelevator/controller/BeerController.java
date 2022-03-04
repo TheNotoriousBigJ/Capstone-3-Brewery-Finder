@@ -38,23 +38,24 @@ public class BeerController {
 
     @ResponseStatus(value= HttpStatus.CREATED)
     @RequestMapping(value="/beers", method=RequestMethod.POST)
-    public Beer createBeer(@Valid @RequestBody Beer beer){
-        return beer;
+    public Boolean createBeer(@Valid @RequestBody Beer beer){
+        return beerDAO.createBeer(beer);
     }
 
     // Update a Beer
 
     @ResponseStatus(value= HttpStatus.OK)
-    @RequestMapping(value= "/beers/{beerId}", method = RequestMethod.PUT)
-    public Boolean updateBeer(@RequestBody Beer beer) {
+    @RequestMapping(value= "/beers/{beer_id}", method = RequestMethod.PUT)
+    public Boolean updateBeer(@RequestBody Beer beer, @PathVariable Integer beer_id) {
+        beer.setBeer_id(beer_id);
         return beerDAO.updateBeer(beer);
     }
 
     // Delete a Beer
 
     @ResponseStatus(value= HttpStatus.NO_CONTENT)
-    @RequestMapping(value = "/beers/{beerId}", method = RequestMethod.DELETE)
-    public void deleteBeer(int beerId) {
-        beerDAO.deleteBeer(beerId);
+    @RequestMapping(value = "/beers/{beer_id}", method = RequestMethod.DELETE)
+    public void deleteBeer(@PathVariable Integer beer_id) {
+        beerDAO.deleteBeer(beer_id);
     }
 }

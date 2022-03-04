@@ -37,24 +37,40 @@ public class JdbcBeerDao implements BeerDAO {
 
     @Override
     public Boolean updateBeer(Beer beer) {
-       String sql = "UPDATE beer"
-               + " SET name = ?, image = ?, description = ?, type = ?, abv = ?"
-               + " WHERE beerId = ?";
-       jdbcTemplate.update(sql, beer);
-       return updateBeer(beer);
+       String sql = "UPDATE beers"
+               + " SET name = ?, image = ?, description = ?, beer_type = ?, abv = ?, brewery_id = ?"
+               + " WHERE beer_id = ?";
+//       added beer id at the end
+       int count =  jdbcTemplate.update(sql, beer.getName(), beer.getImage(),beer.getDescription(), beer.getBeer_type(), beer.getAbv(), beer.getBrewery_id(), beer.getBeer_id());
+       if (count > 0) {
+            return true;
+        }
+       else {
+           return false;
+       }
+       //return updateBeer(beer);
     }
 
     @Override
-    public Beer createBeer(Beer beer) {
-       String sql = "INSERT INTO beers (name, image, description, type, abv, breweryId) + VALUES (?,?,?,?,?,?)";
-               jdbcTemplate.update(sql, beer);
-               return createBeer(beer);
+    public Boolean createBeer(Beer beer) {
+       String sql = "INSERT INTO beers (name, image, description, beer_type, abv, brewery_id) VALUES (?,?,?,?,?,?)";
+               int count = jdbcTemplate.update(sql, beer.getName(), beer.getImage(),beer.getDescription(), beer.getBeer_type(), beer.getAbv(), beer.getBrewery_id());
+        if (count > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+
+
+             //  return createBeer(beer);
     }
 
     @Override
-    public void deleteBeer(int beerId) {
-       String sqlDeleteBeer = "DELETE FROM beers where beerId = ?";
-       jdbcTemplate.update(sqlDeleteBeer, beerId);
+    public void deleteBeer(int beer_id) {
+       String sqlDeleteBeer = "DELETE FROM beers where beer_id = ?";
+       jdbcTemplate.update(sqlDeleteBeer, beer_id);
 
     }
 
@@ -65,10 +81,12 @@ public class JdbcBeerDao implements BeerDAO {
                 beer.setName(sql.getString("name"));
                 beer.setImage(sql.getString("image"));
                 beer.setDescription(sql.getString("description"));
-                beer.setType(sql.getString("type"));
+                beer.setBeer_type(sql.getString("beer_type"));
                 beer.setAbv(sql.getString("abv"));
                 beer.setName(sql.getString("name"));
-                beer.setBreweryId(sql.getInt("breweryId"));
+                beer.setBrewery_id(sql.getInt("brewery_id"));
+                //added this
+                beer.setBeer_id(sql.getInt("beer_id"));
                 return beer;
             } catch (DataAccessException exception) {
                 exception.printStackTrace();

@@ -35,6 +35,7 @@ public class JdbcBreweryDao implements BreweryDAO {
 
     @Override
     public String updateBrewery(Brewery brewery) {
+
         return null;
     }
 
@@ -53,7 +54,7 @@ public class JdbcBreweryDao implements BreweryDAO {
             Brewery brewery = new Brewery();
             brewery.setName(sql.getString("name"));
             brewery.setAddress(sql.getString("address"));
-            brewery.setWebsiteUrl(sql.getString("websiteurl"));
+            brewery.setWebsiteUrl(sql.getString("websiteUrl"));
             brewery.setPhone(sql.getString("phone"));
             brewery.setEmail(sql.getString("email"));
             brewery.setDescription(sql.getString("description"));

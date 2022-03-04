@@ -5,10 +5,10 @@ public class Beer {
     private String name;
     private String image;
     private String description;
-    private String type;
+    private String beer_type;
     private String abv;
-    private int beerId;
-    private int breweryId;
+    private int beer_id;
+    private int brewery_id;
 
     public String getName() {
         return name;
@@ -34,12 +34,12 @@ public class Beer {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
+    public String getBeer_type() {
+        return beer_type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setBeer_type(String beer_type) {
+        this.beer_type = beer_type;
     }
 
     public String getAbv() {
@@ -50,19 +50,21 @@ public class Beer {
         this.abv = abv;
     }
 
-    public int getBeerId() {
-        return beerId;
+    public int getBeer_id() {
+        return beer_id;
     }
 
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
+    public void setBeer_id(int beer_id) {
+        this.beer_id = beer_id;
     }
 
-    public int getBreweryId() {
-        return breweryId;
+    public int getBrewery_id() {
+        return brewery_id;
     }
 
-    public void setBreweryId(int breweryId) {
-        this.breweryId = breweryId;
+    public void setBrewery_id(int brewery_id) {
+        this.brewery_id = brewery_id;
     }
 }
+
+
