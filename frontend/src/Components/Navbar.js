@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {FaBars, FaTimes} from 'react-icons/fa'
-import logo from '../Images/logo.png'
+import logo from 'C:/Users/jwrob/Merit_America/Projects/Final Capstone/final-capstone/frontend/src/Components/Images/logo.png'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -35,4 +35,4 @@ const startClick = () => setClick(!click)
     )
 }
 
-export default Navbar
+export default Navbar;
