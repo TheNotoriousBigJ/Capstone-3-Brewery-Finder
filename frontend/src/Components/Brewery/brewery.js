@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import { baseUrl } from '../../Shared/baseUrl';
-import { Card, Breadcrumb, Button } from 'react-bootstrap';
+import { Card, Breadcrumb, Button, Row, Col } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
 import { Link } from 'react-router-dom';
 
 function RenderBrewery({ brewery }) {
     return (
-        <Card style={{ width: '18rem' }}>
-            <Link to={`/brewery/${brewery.breweryId}`} >
+        <Col key={brewery.brewery_id}>
+            <Card border="primary">
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
                     <Card.Title>{brewery.name}</Card.Title>
                     <Card.Text>
                         {brewery.description}
                     </Card.Text>
-                    <Button variant="primary">Go to Brewery Page</Button>
+                    <Link to={`/brewery/${brewery.brewery_id}`} >
+                        <Button variant="primary">Go to Brewery Page</Button>
+                    </Link>
                 </Card.Body>
-            </Link>
-        </Card>
+            </Card>
+        </Col>
     )
 }
 
@@ -25,9 +27,7 @@ const Breweries = (props) => {
 
     const breweryList = props.breweries.breweries.map(brewery => {
         return (
-            <div key={brewery.breweryId}>
                 <RenderBrewery brewery={brewery} />
-            </div>
         )
     });
 
@@ -62,9 +62,9 @@ const Breweries = (props) => {
                         <hr />
                     </div>
                 </div>
-                <div className="row">
+                <Row md={4}>
                     {breweryList}
-                </div>
+                </Row>
             </div>
         );
 }

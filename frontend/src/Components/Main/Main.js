@@ -52,16 +52,17 @@ class Main extends Component {
 
         const BreweryWithId = ({ match }) => {
             return (
-                <BreweryDetail brewery={this.props.breweries.breweries.filter((brewery) => brewery.breweryId === parseInt(match.params.breweryId, 10))[0]}
-                    isLoading={this.props.dishes.isLoading}
-                    errMess={this.props.dishes.errMess}
+                <BreweryDetail brewery={this.props.breweries.breweries.filter((brewery) => brewery.brewery_id === parseInt(match.params.brewery_id, 10))[0]}
+                    isLoading={this.props.breweries.isLoading}
+                    errMess={this.props.breweries.errMess}
+                    beers={this.props.beers}
                 />
             )
         }
 
         const BeerWithId = ({ match }) => {
             return (
-                <BeerDetail beer={this.props.beers.beers.filter((beer) => beer.beerId === parseInt(match.params.beerId, 10))[0]}
+                <BeerDetail beer={this.props.beers.beers.filter((beer) => beer.beer_id === parseInt(match.params.beer_id, 10))[0]}
                     isLoading={this.props.beers.isLoading}
                     errMess={this.props.beers.errMess}
                 />
@@ -70,7 +71,7 @@ class Main extends Component {
 
         const ReviewWithId = ({ match }) => {
             return (
-                <ReviewDetail review={this.props.reviews.reviews.filter((review) => review.reviewId === parseInt(match.params.reviewId, 10))[0]}
+                <ReviewDetail review={this.props.reviews.reviews.filter((review) => review.review_id === parseInt(match.params.review_id, 10))[0]}
                     isLoading={this.props.reviews.isLoading}
                     errMess={this.props.reviews.errMess}
                 />
@@ -79,9 +80,6 @@ class Main extends Component {
 
         return (
             <div>
-                <div>
-                    <Navbar />
-                </div>
                 <div>
                     {this.props.token.token !== undefined ?
                         <div>
@@ -97,10 +95,10 @@ class Main extends Component {
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
                         <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
-                        <Route path='/brewery' component={() => <Breweries breweries={this.props.breweries} />} />
-                        <Route path="/brewery/:breweryId" component={BreweryWithId} />
-                        <Route path="/beer/:beerId" component={BeerWithId} />
-                        <Route path="/review/:reviewId" component={ReviewWithId} />
+                        <Route exact path='/brewery' component={() => <Breweries breweries={this.props.breweries} />} />
+                        <Route path="/brewery/:brewery_id" component={BreweryWithId} />
+                        <Route path="/beer/:beer_id" component={BeerWithId} />
+                        <Route path="/review/:review_id" component={ReviewWithId} />
                         <Redirect to='/login' />
                     </Switch>
                 </div>

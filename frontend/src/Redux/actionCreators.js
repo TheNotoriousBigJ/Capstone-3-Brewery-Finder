@@ -371,7 +371,7 @@ export const deleteBeer = (beer) => ({
 export const fetchReviews = () => (dispatch) => {
     dispatch(reviewsLoading(true));
 
-    return fetch(baseUrl + '/review')
+    return fetch(baseUrl + '/reviews')
         .then(response => {
             if (response.ok) {
                 return response;
