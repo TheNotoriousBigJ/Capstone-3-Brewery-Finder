@@ -3,14 +3,14 @@ import { Switch, Route, Redirect, Link, Router } from 'react-router-dom'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
-import { addToken, deleteUser, fetchBeers, fetchBreweries, fetchReviews } from '../../Redux/actionCreators'
+import { addToken, deleteUser, fetchBeers, fetchBreweries, fetchReviews, postBrewery } from '../../Redux/actionCreators'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Breweries from '../Brewery/Brewery'
 import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
-import Navbar from '../Navbar'
+import { actions } from 'react-redux-form';
 
 const mapStateToProps = state => {
     return {
@@ -27,7 +27,10 @@ const mapDispatchToProps = (dispatch) => ({
     deleteUser: () => { dispatch(deleteUser()) },
     fetchBreweries: () => { dispatch(fetchBreweries()) },
     fetchBeers: () => { dispatch(fetchBeers()) },
-    fetchReviews: () => { dispatch(fetchReviews()) }
+    fetchReviews: () => { dispatch(fetchReviews()) },
+    resetCreateBreweryForm: () => { dispatch(actions.reset('createbrewery')) },
+    postBrewery: () => { dispatch(postBrewery()) }
+
 });
 
 class Main extends Component {

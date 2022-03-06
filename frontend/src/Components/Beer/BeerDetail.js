@@ -51,7 +51,7 @@ const BeerDetail = (props) => {
     }
     else
         return (
-            <div className="container">
+            <Container fluid>
                 <div>
                     <Breadcrumb>
                         <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
@@ -68,7 +68,7 @@ const BeerDetail = (props) => {
                     {reviewList}
                 </Col>
 
-            </div>
+            </Container>
         );
 }
 

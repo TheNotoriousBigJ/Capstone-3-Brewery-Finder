@@ -18,6 +18,7 @@ public class Brewery {
         this.brewery_id = brewery_id;
         this.name = name;
         this.address = address;
+        this.image = image;
         this.websiteUrl = websiteUrl;
         this.phone = phone;
         this.email = email;

@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { baseUrl } from '../../Shared/baseUrl';
-import { Card, Breadcrumb, Button, Row, Col } from 'react-bootstrap';
+import { Card, Breadcrumb, Button, Row, Col, Container, Modal } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
 import { Link } from 'react-router-dom';
+import BreweryForm from '../Forms/BreweryForm'
 
 function RenderBrewery({ brewery }) {
     return (
@@ -22,6 +23,40 @@ function RenderBrewery({ brewery }) {
         </Col>
     )
 }
+
+function CreateBrewery(props) {
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    return (
+      <>
+        <Button variant="info" onClick={handleShow}>
+          Create a Brewery
+        </Button>
+  
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Create Your Brewery</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <BreweryForm />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
 
 const Breweries = (props) => {
 
@@ -51,21 +86,21 @@ const Breweries = (props) => {
     }
     else
         return (
-            <div className="container">
+            <Container fluid>
                 <div>
                     <Breadcrumb>
                         <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                     </Breadcrumb>
-                    <div className="col-12">
+                    <Row md={6}>
                         <h3>Breweries</h3>
-                        <hr />
-                    </div>
+                        <CreateBrewery />
+                    </Row>
                 </div>
                 <Row md={4}>
                     {breweryList}
                 </Row>
-            </div>
+            </Container>
         );
 }
 

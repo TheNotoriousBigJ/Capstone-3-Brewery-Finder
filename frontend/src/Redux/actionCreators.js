@@ -40,19 +40,20 @@ export const fetchBreweries = () => (dispatch) => {
 
 }
 
-export const postBrewery = (name, address, websiteUrl, phone, email, description,
-    hoursOfOperation, daysOfOperation, userId) => (dispatch) => {
+export const postBrewery = (name, address, image, websiteUrl, phone, email, description,
+    hoursOfOperation, daysOfOperation) => (dispatch) => {
 
         const newBrewery = {
             name: name,
             address: address,
+            image : image,
             websiteUrl: websiteUrl,
             phone: phone,
             email: email,
             description: description,
             hoursOfOperation: hoursOfOperation,
             daysOfOperation: daysOfOperation,
-            userId: userId
+            userId: 1
         }
 
         return fetch(baseUrl + '/breweries', {

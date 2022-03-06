@@ -62,7 +62,7 @@ CREATE TABLE breweries (
 	name varchar(50) NOT NULL,
     address varchar(100),
     image varchar(50),
-    websiteUrl varchar(100) NOT NULL,
+    websiteUrl varchar(500) NOT NULL,
     phone varchar(15),
     email varchar(30),
     description varchar(500) NOT NULL,

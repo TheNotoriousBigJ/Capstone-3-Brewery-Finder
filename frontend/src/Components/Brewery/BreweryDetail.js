@@ -51,7 +51,7 @@ const BreweryDetail = (props) => {
     }
     else
         return (
-            <div className="container">
+            <Container fluid>
                 <div>
                     <Breadcrumb>
                         <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
@@ -66,7 +66,7 @@ const BreweryDetail = (props) => {
                 <Row md={4}>
                     {beerList}
                 </Row>
-            </div>
+            </Container>
         );
 }
 
