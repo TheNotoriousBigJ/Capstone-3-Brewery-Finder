@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Navbar></Navbar>
+      <Navbar />
       <div style={sectionStyle}>
         <BrowserRouter>
           <Main />

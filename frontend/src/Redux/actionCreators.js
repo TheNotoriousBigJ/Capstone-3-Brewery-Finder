@@ -87,12 +87,13 @@ export const postBrewery = (name, address, websiteUrl, phone, email, description
 
     }
 
-export const putBrewery = (name, address, websiteUrl, phone, email, description,
+export const putBrewery = (name, address, image, websiteUrl, phone, email, description,
     hoursOfOperation, daysOfOperation, userId, brewery_id) => (dispatch) => {
 
         const updatedBrewery = {
             name: name,
             address: address,
+            image : image,
             websiteUrl: websiteUrl,
             phone: phone,
             email: email,

@@ -8,7 +8,7 @@ function RenderBrewery({ brewery }) {
     return (
         <Col key={brewery.brewery_id}>
             <Card border="primary">
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={brewery.image} />
                 <Card.Body>
                     <Card.Title>{brewery.name}</Card.Title>
                     <Card.Text>

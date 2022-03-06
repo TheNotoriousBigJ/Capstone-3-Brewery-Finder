@@ -8,7 +8,7 @@ function RenderBeer({ beer }) {
     return (
         <Col key={beer.beer_id}>
             <Card border="primary">
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={beer.image} />
                 <Card.Body>
                     <Card.Title>{beer.name}</Card.Title>
                     <Card.Text>
@@ -55,6 +55,7 @@ const BreweryDetail = (props) => {
                 <div>
                     <Breadcrumb>
                         <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                     </Breadcrumb>
                     <div className="col-12">

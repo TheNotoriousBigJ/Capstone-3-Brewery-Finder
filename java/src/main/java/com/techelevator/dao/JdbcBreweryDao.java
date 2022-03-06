@@ -77,6 +77,7 @@ public class JdbcBreweryDao implements BreweryDAO {
             brewery.setBrewery_id(sql.getInt("brewery_id"));
             brewery.setName(sql.getString("name"));
             brewery.setAddress(sql.getString("address"));
+            brewery.setImage(sql.getString("image"));
             brewery.setWebsiteUrl(sql.getString("websiteUrl"));
             brewery.setPhone(sql.getString("phone"));
             brewery.setEmail(sql.getString("email"));

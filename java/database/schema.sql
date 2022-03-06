@@ -61,6 +61,7 @@ CREATE TABLE breweries (
 	brewery_id int DEFAULT nextval('seq_brewery_id'::regclass) NOT NULL,
 	name varchar(50) NOT NULL,
     address varchar(100),
+    image varchar(50),
     websiteUrl varchar(100) NOT NULL,
     phone varchar(15),
     email varchar(30),
@@ -98,7 +99,9 @@ CREATE TABLE reviews (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO breweries (name,address,websiteUrl,phone,email,description,hoursOfOperation,daysOfOperation,user_id) VALUES ('Dummy','123 Fake St','thisurl.com','924-867-5309','thisemail@gmail.com','We are a brewery','12:00 PM to 2:00 AM','Monday Tuesday Wednesday Thursday, Friday, Saturday, Monday','1');
+INSERT INTO breweries (name,address, image, websiteUrl,phone,email,description,hoursOfOperation,daysOfOperation,user_id) VALUES ('Dummy','123 Fake St', 'img.png', 'thisurl.com','924-867-5309','thisemail@gmail.com','We are a brewery','12:00 PM to 2:00 AM','Monday Tuesday Wednesday Thursday, Friday, Saturday, Monday','1');
 INSERT INTO beers (name, image, description, beer_type, abv, brewery_id) VALUES ('coors', 'img.url', 'grossest beer ever', 'lager', '5%', 1);
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (1, 1, 5, 'Tastes like water mixed with more water with a water chaser');
+
 
 COMMIT TRANSACTION;

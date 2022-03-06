@@ -4,6 +4,7 @@ public class Brewery {
     private int brewery_id;
     private String name;
     private String address;
+    private String image;
     private String websiteUrl;
     private String phone;
     private String email;
@@ -48,6 +49,14 @@ public class Brewery {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getWebsiteUrl() {

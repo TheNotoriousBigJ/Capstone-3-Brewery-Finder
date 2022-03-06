@@ -65,6 +65,8 @@ class Main extends Component {
                 <BeerDetail beer={this.props.beers.beers.filter((beer) => beer.beer_id === parseInt(match.params.beer_id, 10))[0]}
                     isLoading={this.props.beers.isLoading}
                     errMess={this.props.beers.errMess}
+                    reviews={this.props.reviews}
+                    users={this.props.users}
                 />
             )
         }
