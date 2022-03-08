@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { createForms } from 'react-redux-form'
 import thunk from 'redux-thunk'
 import {Token} from './token'
@@ -7,6 +7,8 @@ import {Brewery} from './brewery'
 import {Beer} from './beer'
 import {Review} from './review'
 import { CreateBrewery } from './forms'
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const ConfigureStore = () => {
     const store = createStore(
@@ -20,7 +22,9 @@ export const ConfigureStore = () => {
                 createbrewery: CreateBrewery
             })
         }),
+        composeEnhancers(
         applyMiddleware(thunk)
+        )
     );
 
     return store;

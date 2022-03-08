@@ -59,6 +59,7 @@ class Main extends Component {
                     isLoading={this.props.breweries.isLoading}
                     errMess={this.props.breweries.errMess}
                     beers={this.props.beers}
+                    postBrewery={this.props.postBrewery}
                 />
             )
         }
@@ -100,7 +101,10 @@ class Main extends Component {
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
                         <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
-                        <Route exact path='/brewery' component={() => <Breweries breweries={this.props.breweries} />} />
+                        <Route exact path='/brewery' component={() => <Breweries 
+                            breweries={this.props.breweries} 
+                            postBrewery={this.props.postBrewery} 
+                            resetCreateBreweryForm={this.props.resetCreateBreweryForm}  />} />
                         <Route path="/brewery/:brewery_id" component={BreweryWithId} />
                         <Route path="/beer/:beer_id" component={BeerWithId} />
                         <Route path="/review/:review_id" component={ReviewWithId} />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Col, Row, FormLabel, FormGroup, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Control, Errors, actions } from 'react-redux-form';
+import { Control, Errors, LocalForm, actions } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -34,8 +34,8 @@ class BreweryForm extends Component {
 
     render() {
         return (
-            <Form model="createbrewery" onSubmit={(values) => this.handleSubmit(values)}>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+            <LocalForm model="createbrewery">
+                <Form.Group className="mb-3" controlId="createbrewery" >
                     <Form.Label>Brewery Name</Form.Label>
                     <Control.text model=".breweryName" id="breweryName" name="breweryName"
                         placeholder="Name"
@@ -54,7 +54,7 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Brewery Address</Form.Label>
                     <Control.text model=".address" id="address" name="address"
                         placeholder="Address"
@@ -72,7 +72,7 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Brewery Image URL</Form.Label>
                     <Control.text model=".image" id="image" name="image"
                         placeholder="Image URL"
@@ -90,7 +90,7 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Web Address</Form.Label>
                     <Control.text model=".websiteUrl" id="websiteUrl" name="websiteUrl"
                         placeholder="Website URL"
@@ -109,7 +109,7 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Brewery Phone Number</Form.Label>
                     <Control.text model=".phone" id="phone" name="phone"
                         placeholder="Phone Number"
@@ -130,7 +130,7 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Brewery Email</Form.Label>
                     <Control.text model=".email" id="email" name="email"
                         placeholder="Email"
@@ -150,13 +150,13 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Brewery Description</Form.Label>
                     <Control.textarea model=".description" id="description" name="description"
                         rows="12"
                         className="form-control" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Hours of Operation</Form.Label>
                     <Control.text model=".hoursofoperation" id="hoursofoperation" name="hoursofoperation"
                         placeholder="Hours of Operation"
@@ -174,12 +174,11 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formCreateBrewery">
+                <Form.Group className="mb-3" controlId="createbrewery">
                     <Form.Label>Days of Operation</Form.Label>
                     <Control.text model=".daysofoperation" id="daysofoperation" name="daysofoperation"
                         placeholder="Days"
                         className="form-control"
-                        pattern="+.day" required
                         validators={{
                             minLength: minLength(3), maxLength: maxLength(70)
                         }} />
@@ -193,10 +192,10 @@ class BreweryForm extends Component {
                         }}
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" value="submit" onClick={(values) => this.handleSubmit(values)}>
                     Submit
                 </Button>
-            </Form>
+            </LocalForm>
         );
     }
 }
