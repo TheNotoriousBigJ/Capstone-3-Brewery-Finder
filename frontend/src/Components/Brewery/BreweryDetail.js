@@ -3,6 +3,7 @@ import { baseUrl } from '../../Shared/baseUrl';
 import { Card, Breadcrumb, Button, Container, Row, Col } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
 import { Link } from 'react-router-dom';
+import { Brewery } from "../../Redux/brewery";
 
 function RenderBeer({ beer }) {
     return (
@@ -58,10 +59,12 @@ const BreweryDetail = (props) => {
                         <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                     </Breadcrumb>
-                    <div className="col-12">
-                        <h3>Breweries</h3>
-                        <hr />
-                    </div>
+                    <Col md={{ span: 5, offset: 5 }}>
+                        <h2>{props.brewery.name}</h2>
+                        <h5>{props.brewery.address}</h5>
+                        <h5>{props.brewery.phone}</h5>
+                    </Col>
+                    <hr />
                 </div>
                 <Row md={4}>
                     {beerList}
