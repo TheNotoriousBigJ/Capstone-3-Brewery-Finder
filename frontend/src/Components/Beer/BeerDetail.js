@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { baseUrl } from '../../Shared/baseUrl';
-import { Card, Breadcrumb, Button, Container, Row, Col } from 'react-bootstrap';
+import { Card, Breadcrumb, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
 import { Link } from 'react-router-dom';
 import { User } from "../../Redux/user";
+import ReviewForm from "../Forms/ReviewForm";
 
 function RenderReview({ review }) {
     return (
         <Col key={review.review_id}>
-            <Card border="primary">
+            <Card border="primary" bg="secondary">
                 <Card.Body>
                     <Card.Title>username</Card.Title>
                     <Card.Text>
@@ -23,11 +24,49 @@ function RenderReview({ review }) {
     )
 }
 
+function CreateReview(props) {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+        <>
+            <Button variant="info" onClick={handleShow}>
+                Rate and Review
+            </Button>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Rate and Review This Beer</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ReviewForm beer={props.beer} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
+}
+
 const BeerDetail = (props) => {
 
-    const reviewList = props.reviews.reviews.map(review => {
+    const reviewList = props.reviews.reviews.filter((review) => {
+        return review.beer_id === props.beer.beer_id;
+    });
+
+    const filteredReviewList = reviewList.map(review => {
         return (
-            <RenderReview review={review}  />
+                <RenderReview review={review} />
         )
     });
 
@@ -61,11 +100,12 @@ const BeerDetail = (props) => {
                     </Breadcrumb>
                     <div className="col-12">
                         <h3>Beer</h3>
+                        <CreateReview beer={props.beer} />
                         <hr />
                     </div>
                 </div>
                 <Col>
-                    {reviewList}
+                    {filteredReviewList}
                 </Col>
 
             </Container>

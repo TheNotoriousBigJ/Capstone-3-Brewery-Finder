@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { baseUrl } from '../../Shared/baseUrl';
-import { Card, Breadcrumb, Button, Container, Row, Col } from 'react-bootstrap';
+import { Card, Breadcrumb, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
 import { Link } from 'react-router-dom';
-import { Brewery } from "../../Redux/brewery";
+import BeerForm from "../Forms/BeerForm";
 
 function RenderBeer({ beer }) {
     return (
@@ -24,9 +24,47 @@ function RenderBeer({ beer }) {
     )
 }
 
+function CreateBeer(props) {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+        <>
+            <Button variant="info" onClick={handleShow}>
+                Add a Beer
+            </Button>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Create Your Beer</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <BeerForm brewery={props.brewery} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
+}
+
 const BreweryDetail = (props) => {
 
-    const beerList = props.beers.beers.map(beer => {
+    const beerList = props.beers.beers.filter((beer) => {
+        return beer.brewery_id === props.brewery.brewery_id;
+    });
+
+    const filteredBeerList = beerList.map(beer => {
         return (
                 <RenderBeer beer={beer} />
         )
@@ -63,11 +101,12 @@ const BreweryDetail = (props) => {
                         <h2>{props.brewery.name}</h2>
                         <h5>{props.brewery.address}</h5>
                         <h5>{props.brewery.phone}</h5>
+                        <CreateBeer brewery={props.brewery} />
                     </Col>
                     <hr />
                 </div>
                 <Row md={4}>
-                    {beerList}
+                    {filteredBeerList}
                 </Row>
             </Container>
         );
