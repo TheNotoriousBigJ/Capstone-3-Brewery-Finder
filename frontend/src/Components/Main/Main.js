@@ -1,12 +1,14 @@
 import { Component } from 'react'
-import { Switch, Route, Redirect, Link, Router } from 'react-router-dom'
+import { Switch, Route, Redirect, Link } from 'react-router-dom'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
 import { addToken, deleteUser, fetchBeers, fetchBreweries, fetchReviews, postBrewery } from '../../Redux/actionCreators'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+
 import Breweries from '../Brewery/Brewery'
+
 import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
@@ -59,6 +61,7 @@ class Main extends Component {
                     isLoading={this.props.breweries.isLoading}
                     errMess={this.props.breweries.errMess}
                     beers={this.props.beers}
+
                     postBrewery={this.props.postBrewery}
                 />
             )
@@ -95,7 +98,9 @@ class Main extends Component {
 
                         </div>
                         :
+
                         <Link to='/login'>Home | </Link>
+
                     }
                     <Switch>
                         <Route path='/login' component={() => <Login />} />
@@ -109,6 +114,7 @@ class Main extends Component {
                         <Route path="/beer/:beer_id" component={BeerWithId} />
                         <Route path="/review/:review_id" component={ReviewWithId} />
                         <Redirect to='/login' />
+
                     </Switch>
                 </div>
             </div>
