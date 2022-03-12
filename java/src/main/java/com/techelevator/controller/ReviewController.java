@@ -40,14 +40,14 @@ public class ReviewController {
 
     @ResponseStatus(value= HttpStatus.OK)
     @RequestMapping(value= "/reviews/{review_id}", method = RequestMethod.PUT)
-    public Boolean updateBeer(@RequestBody Review review, @PathVariable Integer review_id) {
+    public Boolean updateReview(@RequestBody Review review, @PathVariable Integer review_id) {
         review.setReview_id(review_id);
         return reviewDAO.updateReview(review);
     }
 
     @ResponseStatus(value= HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/reviews/{review_id}", method = RequestMethod.DELETE)
-    public void deleteBeer(@PathVariable Integer review_id) {
+    public void deleteReview(@PathVariable Integer review_id) {
         reviewDAO.deleteReview(review_id);
     }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from '../Components/Images/logo.png'
@@ -43,3 +44,9 @@ const Footer = () => {
 }
 
 export default Footer;
+=======
+
+
+
+const BreweryFooter 
+>>>>>>> 2a140d073b4dc668acfad1678c300cc94bf334b6

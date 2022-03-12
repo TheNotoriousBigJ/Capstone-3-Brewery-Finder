@@ -26,43 +26,45 @@ function RenderBrewery({ brewery }) {
 
 function CreateBrewery(props) {
     const [show, setShow] = useState(false);
-  
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
+
     return (
-      <>
-        <Button variant="info" onClick={handleShow}>
-          Create a Brewery
-        </Button>
-  
-        <Modal
-          show={show}
-          onHide={handleClose}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Create Your Brewery</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <BreweryForm />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
+        <>
+            <Button variant="info" onClick={handleShow}>
+                Create a Brewery
             </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Create Your Brewery</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <BreweryForm 
+                        postBrewery={props.postBrewery} 
+                        resetCreateBreweryForm={props.resetCreateBreweryForm} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </>
     );
-  }
+}
 
 const Breweries = (props) => {
 
     const breweryList = props.breweries.breweries.map(brewery => {
         return (
-                <RenderBrewery brewery={brewery} />
+            <RenderBrewery brewery={brewery} />
         )
     });
 
@@ -94,7 +96,9 @@ const Breweries = (props) => {
                     </Breadcrumb>
                     <Row md={6}>
                         <h3>Breweries</h3>
-                        <CreateBrewery />
+                        <CreateBrewery 
+                            postBrewery={props.postBrewery} 
+                            resetCreateBreweryForm={props.resetCreateBreweryForm} />
                     </Row>
                 </div>
                 <Row md={4}>

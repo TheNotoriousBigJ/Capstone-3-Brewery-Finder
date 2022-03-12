@@ -82,7 +82,7 @@ export const postBrewery = (name, address, image, websiteUrl, phone, email, desc
             .then(response => response.json())
             .then(response => dispatch(createBrewery(response)))
             .catch(error => {
-                console.log('Post comments ', error.message)
+                console.log('Post brewery ', error.message)
                 alert('Your brewery could not be created\nError: ' + error.message)
             })
 

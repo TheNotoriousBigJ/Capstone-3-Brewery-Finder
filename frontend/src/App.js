@@ -4,10 +4,13 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigureStore } from './Redux/configureStore'
 import Navbar from './Components/Navbar'
-import { Nav } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
 import Background from './Components/Images/background.png'
 import Footer from './Components/Footer'
+=======
+import Background from './Components/Images/background.jpeg'
+>>>>>>> 2a140d073b4dc668acfad1678c300cc94bf334b6
 
 const store = ConfigureStore();
 
@@ -19,7 +22,7 @@ function App() {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     width: '100vw',
-    height: '100vh'
+    height: '100vh',
   }
 
   return (
