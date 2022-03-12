@@ -8,18 +8,18 @@ import BreweryForm from '../Forms/BreweryForm'
 function RenderBrewery({ brewery }) {
     return (
         <Col key={brewery.brewery_id}>
-            <Card border="primary">
-                <Card.Img variant="top" src={brewery.image} />
-                <Card.Body>
-                    <Card.Title>{brewery.name}</Card.Title>
-                    <Card.Text>
-                        {brewery.description}
-                    </Card.Text>
-                    <Link to={`/brewery/${brewery.brewery_id}`} >
-                        <Button variant="primary">Go to Brewery Page</Button>
-                    </Link>
-                </Card.Body>
-            </Card>
+            <Link to={`/brewery/${brewery.brewery_id}`} >
+                <Card border="light" style={{ width: '30rem', height: '40rem', margin: '10px'}}>
+                    <Card.Img variant="top" src={brewery.image} />
+                    <Card.Body>
+                        <Card.Title>{brewery.name}</Card.Title>
+                        <Card.Text>
+                            {brewery.address}
+                            {brewery.phone}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Link>
         </Col>
     )
 }
@@ -32,7 +32,7 @@ function CreateBrewery(props) {
 
     return (
         <>
-            <Button variant="info" onClick={handleShow}>
+            <Button size="lg" variant="outline-warning" onClick={handleShow}>
                 Create a Brewery
             </Button>
 
@@ -46,8 +46,8 @@ function CreateBrewery(props) {
                     <Modal.Title>Create Your Brewery</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <BreweryForm 
-                        postBrewery={props.postBrewery} 
+                    <BreweryForm
+                        postBrewery={props.postBrewery}
                         resetCreateBreweryForm={props.resetCreateBreweryForm} />
                 </Modal.Body>
                 <Modal.Footer>
@@ -94,12 +94,12 @@ const Breweries = (props) => {
                         <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Row md={6}>
-                        <h3>Breweries</h3>
-                        <CreateBrewery 
-                            postBrewery={props.postBrewery} 
+                    <Col className="text-center">
+                        <h1>Breweries</h1>
+                        <CreateBrewery
+                            postBrewery={props.postBrewery}
                             resetCreateBreweryForm={props.resetCreateBreweryForm} />
-                    </Row>
+                    </Col>
                 </div>
                 <Row md={4}>
                     {breweryList}

@@ -9,7 +9,7 @@ import ReviewForm from "../Forms/ReviewForm";
 function RenderReview({ review }) {
     return (
         <Col key={review.review_id}>
-            <Card border="primary" bg="secondary">
+            <Card border="light" bg="secondary">
                 <Card.Body>
                     <Card.Title>username</Card.Title>
                     <Card.Text>
@@ -32,7 +32,7 @@ function CreateReview(props) {
 
     return (
         <>
-            <Button variant="info" onClick={handleShow}>
+            <Button size="lg" variant="outline-warning" onClick={handleShow}>
                 Rate and Review
             </Button>
 
@@ -66,7 +66,7 @@ const BeerDetail = (props) => {
 
     const filteredReviewList = reviewList.map(review => {
         return (
-                <RenderReview review={review} />
+            <RenderReview review={review} />
         )
     });
 
@@ -98,11 +98,20 @@ const BeerDetail = (props) => {
                         <Breadcrumb.Item><Link to={`/brewery/${props.beer.brewery_id}`}>Brewery</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Beer</Breadcrumb.Item>
                     </Breadcrumb>
-                    <div className="col-12">
-                        <h3>Beer</h3>
+                    <Col className="text-center">
+                        <h3>{props.beer.name}</h3>
+                        <Row>
+                            <Col>
+                                {props.beer.beer_type}
+                            </Col>
+                            <Col>
+                                {props.beer.abv}
+                            </Col>
+                        </Row>
+                        {props.beer.description}
                         <CreateReview beer={props.beer} />
                         <hr />
-                    </div>
+                    </Col>
                 </div>
                 <Col>
                     {filteredReviewList}

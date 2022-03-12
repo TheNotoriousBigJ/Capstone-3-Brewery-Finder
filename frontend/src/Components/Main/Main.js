@@ -6,14 +6,13 @@ import Home from '../Home/Home'
 import { addToken, deleteUser, fetchBeers, fetchBreweries, fetchReviews, postBrewery } from '../../Redux/actionCreators'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import About from '../About/About'
+
 import Breweries from '../Brewery/Brewery'
+
 import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
 import { actions } from 'react-redux-form';
-import Contact from '../Contact/Contact'
-
 
 const mapStateToProps = state => {
     return {
@@ -62,8 +61,8 @@ class Main extends Component {
                     isLoading={this.props.breweries.isLoading}
                     errMess={this.props.breweries.errMess}
                     beers={this.props.beers}
-
                     postBrewery={this.props.postBrewery}
+                    user={this.props.user}
                 />
             )
         }
@@ -74,16 +73,18 @@ class Main extends Component {
                     isLoading={this.props.beers.isLoading}
                     errMess={this.props.beers.errMess}
                     reviews={this.props.reviews}
-                    users={this.props.users}
+                    user={this.props.user}
                 />
             )
         }
 
         const ReviewWithId = ({ match }) => {
             return (
-                <ReviewDetail review={this.props.reviews.reviews.filter((review) => review.review_id === parseInt(match.params.review_id, 10))[0]}
+                <ReviewDetail review={this.props.reviews.reviews.filter((review) => 
+                        review.review_id === parseInt(match.params.review_id, 10))[0]}
                     isLoading={this.props.reviews.isLoading}
                     errMess={this.props.reviews.errMess}
+                    user={this.props.user}
                 />
             )
         }
@@ -100,19 +101,19 @@ class Main extends Component {
                         </div>
                         :
 
-                        <Link to='/login'></Link>
+                        <Link to='/login'>Home | </Link>
 
                     }
                     <Switch>
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
-                        <Route path='/About' component={() => <About />} />
-                        <Route path='/contact' component={() => <Contact />} />
-                        <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
+                        <Route path='/home' component={this.props.token.token !== undefined ? () => <Home
+                            user={this.props.user} /> : null} />
                         <Route exact path='/brewery' component={() => <Breweries 
                             breweries={this.props.breweries} 
                             postBrewery={this.props.postBrewery} 
-                            resetCreateBreweryForm={this.props.resetCreateBreweryForm}  />} />
+                            resetCreateBreweryForm={this.props.resetCreateBreweryForm}
+                            user={this.props.user}  />} />
                         <Route path="/brewery/:brewery_id" component={BreweryWithId} />
                         <Route path="/beer/:beer_id" component={BeerWithId} />
                         <Route path="/review/:review_id" component={ReviewWithId} />
