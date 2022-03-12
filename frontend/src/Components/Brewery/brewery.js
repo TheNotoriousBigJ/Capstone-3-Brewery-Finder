@@ -4,9 +4,12 @@ import { Card, Breadcrumb, Button, Row, Col, Container, Modal } from 'react-boot
 import { Loading } from '../Loading/Loading';
 import { Link } from 'react-router-dom';
 import BreweryForm from '../Forms/BreweryForm'
+import './Brewery.css'
 
 function RenderBrewery({ brewery }) {
     return (
+       
+        
         <Col key={brewery.brewery_id}>
             <Link to={`/brewery/${brewery.brewery_id}`} >
                 <Card border="light" style={{ width: '30rem', height: '40rem', margin: '10px'}}>
@@ -21,6 +24,8 @@ function RenderBrewery({ brewery }) {
                 </Card>
             </Link>
         </Col>
+        
+        
     )
 }
 
@@ -68,12 +73,16 @@ const Breweries = (props) => {
         )
     });
 
+    
+
     if (props.breweries.isLoading) {
         return (
+            <div className="App">
             <div className="container">
                 <div className="row">
                     <Loading />
                 </div>
+            </div>
             </div>
         );
     }
@@ -82,10 +91,14 @@ const Breweries = (props) => {
             <div className="container">
                 <div className="row">
                     <h4>{props.breweries.errMess}</h4>
+
                 </div>
             </div>
+            
         );
     }
+
+    /*Buttons*/
     else
         return (
             <Container fluid>
@@ -105,6 +118,7 @@ const Breweries = (props) => {
                     {breweryList}
                 </Row>
             </Container>
+            
         );
 }
 
