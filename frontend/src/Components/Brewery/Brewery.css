@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.primary {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-color: black;
+}
+
+.card {
+    border-color: black;
+
+}

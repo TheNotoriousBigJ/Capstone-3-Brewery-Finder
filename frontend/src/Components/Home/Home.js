@@ -1,12 +1,13 @@
 import React from 'react'
-import { Container, Col } from 'react-bootstrap'
+import { Container, Col, Button } from 'react-bootstrap'
 import './Home.css'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
     return (
         <>
-        <style type="text/css">
-            {`
+            <style type="text/css">
+                {`
             .col-1 {
                 padding: 1rem 1rem 1rem 0;
                 height: 70vh;
@@ -19,18 +20,21 @@ const Home = () => {
             </style>
             <Container fluid>
 
-        <Col variant="primary-color" className='home'>
-            <Col className="container">
-                <div className="content">
-                    <div className="text">
-                        <p>Welcome to Bruser</p>
-                    </div>
-                    <h1>Maine's Premier</h1>
-                    <h1>Brewery</h1>
-                </div>
-            </Col>
-        </Col>
-        </Container>
+                <Col variant="primary-color" className='home'>
+                    <Col className="container">
+                        <div className="content">
+                            <div className="text">
+                                <p>Welcome to Brewsers</p>
+                                <Link to="/brewery">
+                                    <Button size="lg" variant="outline-warning">
+                                        Go to Brewery
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </Col>
+                </Col>
+            </Container>
         </>
     )
 }

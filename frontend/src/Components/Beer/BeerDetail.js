@@ -108,8 +108,12 @@ const BeerDetail = (props) => {
                                 {props.beer.abv}
                             </Col>
                         </Row>
-                        {props.beer.description}
-                        <CreateReview beer={props.beer} />
+                        <Col>
+                            {props.beer.description}
+                        </Col>
+                        <Col>
+                            <CreateReview beer={props.beer} />
+                        </Col>
                         <hr />
                     </Col>
                 </div>

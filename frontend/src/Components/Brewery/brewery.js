@@ -2,11 +2,25 @@ import React, { Component, useState } from "react";
 import { baseUrl } from '../../Shared/baseUrl';
 import { Card, Breadcrumb, Button, Row, Col, Container, Modal } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import BreweryForm from '../Forms/BreweryForm'
+import {connect} from 'react-redux'
+import './Brewery.css'
+
+const mapStateToProps = state => {
+    return {
+        token: state.token,
+        user: state.user,
+        breweries: state.breweries,
+        beers: state.beers,
+        reviews: state.reviews
+    }
+}
 
 function RenderBrewery({ brewery }) {
     return (
+       
+        
         <Col key={brewery.brewery_id}>
             <Link to={`/brewery/${brewery.brewery_id}`} >
                 <Card border="light" style={{ width: '30rem', height: '40rem', margin: '10px'}}>
@@ -21,6 +35,8 @@ function RenderBrewery({ brewery }) {
                 </Card>
             </Link>
         </Col>
+        
+        
     )
 }
 
@@ -60,7 +76,7 @@ function CreateBrewery(props) {
     );
 }
 
-const Breweries = (props) => {
+const Brewery = (props) => {
 
     const breweryList = props.breweries.breweries.map(brewery => {
         return (
@@ -68,12 +84,16 @@ const Breweries = (props) => {
         )
     });
 
+    
+
     if (props.breweries.isLoading) {
         return (
+            <div className="App">
             <div className="container">
                 <div className="row">
                     <Loading />
                 </div>
+            </div>
             </div>
         );
     }
@@ -82,10 +102,14 @@ const Breweries = (props) => {
             <div className="container">
                 <div className="row">
                     <h4>{props.breweries.errMess}</h4>
+
                 </div>
             </div>
+            
         );
     }
+
+    /*Buttons*/
     else
         return (
             <Container fluid>
@@ -105,7 +129,8 @@ const Breweries = (props) => {
                     {breweryList}
                 </Row>
             </Container>
+            
         );
 }
 
-export default Breweries;
+export default withRouter(connect(mapStateToProps)(Brewery));

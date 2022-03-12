@@ -6,9 +6,7 @@ import Home from '../Home/Home'
 import { addToken, deleteUser, fetchBeers, fetchBreweries, fetchReviews, postBrewery } from '../../Redux/actionCreators'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-
-import Breweries from '../Brewery/Brewery'
-
+import Brewery from '../Brewery/Brewery'
 import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
@@ -107,13 +105,12 @@ class Main extends Component {
                     <Switch>
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
-                        <Route path='/home' component={this.props.token.token !== undefined ? () => <Home
-                            user={this.props.user} /> : null} />
-                        <Route exact path='/brewery' component={() => <Breweries 
+                        <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
+                        <Route exact path='/brewery' component={() => <Brewery
                             breweries={this.props.breweries} 
                             postBrewery={this.props.postBrewery} 
                             resetCreateBreweryForm={this.props.resetCreateBreweryForm}
-                            user={this.props.user}  />} />
+                             />} />
                         <Route path="/brewery/:brewery_id" component={BreweryWithId} />
                         <Route path="/beer/:beer_id" component={BeerWithId} />
                         <Route path="/review/:review_id" component={ReviewWithId} />

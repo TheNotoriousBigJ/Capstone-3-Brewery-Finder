@@ -11,23 +11,15 @@ const store = ConfigureStore();
 
 function App() {
 
-  var sectionStyle = {
-    backgroundImage: `url(${Background})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    width: '100vw',
-    height: '100vh',
-  }
-
   return (
     <Provider store={store}>
-      <Navbar />
-      <div style={sectionStyle}>
         <BrowserRouter>
           <Main />
         </BrowserRouter>
+<<<<<<< HEAD
       </div>
+=======
+>>>>>>> 7471c9e02f646fc6a93448592fd4480a9d96a4ff
     </Provider>
     
   );
