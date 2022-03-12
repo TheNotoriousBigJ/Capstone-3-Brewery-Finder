@@ -8,18 +8,18 @@ import BeerForm from "../Forms/BeerForm";
 function RenderBeer({ beer }) {
     return (
         <Col key={beer.beer_id}>
-            <Card border="primary">
-                <Card.Img variant="top" src={beer.image} />
-                <Card.Body>
-                    <Card.Title>{beer.name}</Card.Title>
-                    <Card.Text>
-                        {beer.description}
-                    </Card.Text>
-                    <Link to={`/beer/${beer.beer_id}`} >
-                        <Button variant="primary">Go to Beer Page</Button>
-                    </Link>
-                </Card.Body>
-            </Card>
+            <Link to={`/beer/${beer.beer_id}`} >
+                <Card border="light" style={{ width: '30rem', height: '40rem', margin: '10px' }}>
+                    <Card.Img variant="top" src={beer.image} />
+                    <Card.Body>
+                        <Card.Title>{beer.name}</Card.Title>
+                        <Card.Text>
+                            {beer.type}
+                            {beer.abv}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Link>
         </Col>
     )
 }
@@ -32,7 +32,7 @@ function CreateBeer(props) {
 
     return (
         <>
-            <Button variant="info" onClick={handleShow}>
+            <Button size="lg" variant="warning" onClick={handleShow}>
                 Add a Beer
             </Button>
 
@@ -66,7 +66,7 @@ const BreweryDetail = (props) => {
 
     const filteredBeerList = beerList.map(beer => {
         return (
-                <RenderBeer beer={beer} />
+            <RenderBeer beer={beer} />
         )
     });
 
@@ -99,8 +99,15 @@ const BreweryDetail = (props) => {
                     </Breadcrumb>
                     <Col md={{ span: 5, offset: 5 }}>
                         <h2>{props.brewery.name}</h2>
-                        <h5>{props.brewery.address}</h5>
-                        <h5>{props.brewery.phone}</h5>
+                        <Row>
+                            <h5>{props.brewery.address}</h5>
+                            <h5>{props.brewery.phone}</h5>
+                        </Row>
+                        <Row>
+                            <h3>{props.brewery.hoursOfOperation}</h3>
+                            <h3>{props.brewery.daysOfOperation}</h3>
+                        </Row>
+                        <h5>{props.brewery.description}</h5>
                         <CreateBeer brewery={props.brewery} />
 
                     </Col>

@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Button, Col, Row, FormLabel, FormGroup, Form } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
-import { Control, Errors, LocalForm, actions } from 'react-redux-form';
+import { Control, Errors, LocalForm } from 'react-redux-form';
 import axios from 'axios';
 import { baseUrl } from '../../Shared/baseUrl';
 
@@ -42,24 +42,6 @@ const BreweryForm = (props) => {
         setBrewery([...brewery, data]);
 
     }
-
-
-    //handleSubmit(values) {
-    //   console.log("XXXXX")
-    //    this.props.postBrewery(
-    //      values.target.form.breweryName.value,
-    //    values.target.form.address.value,
-    //  values.target.form.image.value,
-    //       values.target.form.websiteUrl.value,
-    //       values.target.form.phone.value,
-    //      values.target.form.email.value,
-    //     values.target.form.description.value,
-    //     values.target.form.hoursofoperation.value,
-    //    values.target.form.daysofoperation.value
-    // );
-    // this.props.resetCreateBreweryForm();
-    //values.target.form.breweryName.value
-    //}
 
     return (
         <LocalForm model="createbrewery">
