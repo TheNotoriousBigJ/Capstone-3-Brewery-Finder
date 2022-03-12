@@ -5,6 +5,7 @@ import { Loading } from '../Loading/Loading';
 import { Link, withRouter } from 'react-router-dom';
 import BreweryForm from '../Forms/BreweryForm'
 import {connect} from 'react-redux'
+import './Brewery.css'
 
 const mapStateToProps = state => {
     return {
@@ -18,6 +19,8 @@ const mapStateToProps = state => {
 
 function RenderBrewery({ brewery }) {
     return (
+       
+        
         <Col key={brewery.brewery_id}>
             <Link to={`/brewery/${brewery.brewery_id}`} >
                 <Card border="light" style={{ width: '30rem', height: '40rem', margin: '10px'}}>
@@ -32,6 +35,8 @@ function RenderBrewery({ brewery }) {
                 </Card>
             </Link>
         </Col>
+        
+        
     )
 }
 
@@ -79,12 +84,16 @@ const Brewery = (props) => {
         )
     });
 
+    
+
     if (props.breweries.isLoading) {
         return (
+            <div className="App">
             <div className="container">
                 <div className="row">
                     <Loading />
                 </div>
+            </div>
             </div>
         );
     }
@@ -93,10 +102,14 @@ const Brewery = (props) => {
             <div className="container">
                 <div className="row">
                     <h4>{props.breweries.errMess}</h4>
+
                 </div>
             </div>
+            
         );
     }
+
+    /*Buttons*/
     else
         return (
             <Container fluid>
@@ -116,6 +129,7 @@ const Brewery = (props) => {
                     {breweryList}
                 </Row>
             </Container>
+            
         );
 }
 
