@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from 'C:/Users/jwrob/Merit_America/Projects/Final Capstone/final-capstone/frontend/src/Components/Images/logo.png'
+import logo from '../Components/Images/logo.png'
 import './Navbar.css'
 import { Container, Navbar, Nav } from 'react-bootstrap'
 

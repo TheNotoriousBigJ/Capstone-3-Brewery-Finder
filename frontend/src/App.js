@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar'
 import { Nav } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Background from './Components/Images/background.png'
+import Footer from './Components/Footer'
 
 const store = ConfigureStore();
 
@@ -29,6 +30,9 @@ function App() {
           <Main />
         </BrowserRouter>
       </div>
+      <Footer />
+
+      
     </Provider>
   );
 }
