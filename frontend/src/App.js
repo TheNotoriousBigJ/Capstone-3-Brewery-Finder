@@ -4,9 +4,8 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigureStore } from './Redux/configureStore'
 import Navbar from './Components/Navbar'
-import { Nav } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Background from './Components/Images/background.png'
+import Background from './Components/Images/background.jpeg'
 
 const store = ConfigureStore();
 

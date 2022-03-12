@@ -1,10 +1,12 @@
-import { Component, useState } from 'react'
+import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { addToken, addUser } from '../../Redux/actionCreators'
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
+import './Login.css'
+import { Container, Col } from 'react-bootstrap'
 
 
 
@@ -46,8 +48,16 @@ class Login extends Component {
     render() {
         return (
             <>
-                <div>
+            
+                <Container fluid>
+                
+                    
+                
+                
+                    <Col className="container">
+                    <Col className='form'>
                     <h1>Please Sign In</h1>
+                    
                     <label class="sr-only">Username</label>
                     <input
                         type="text"
@@ -70,11 +80,18 @@ class Login extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
+                    <Col className="btn">
                     <Link to="/register">Need an account?</Link>
                     <Link to={'/home'}>
-                        <button type="submit" onClick={this.handleLogin}>Sign in</button>\
+                        
+                        <button type="submit" onClick={this.handleLogin}>Sign in</button>
                     </Link>
-                </div>
+                    </Col>
+                    </Col>
+                    </Col>
+                    
+                
+                </Container>
             </>
         )
     }

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Source+Serif+4:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 
 * {
   box-sizing: border-box;
@@ -20,10 +21,6 @@ code {
     monospace;
 }
 
-ul {
-  list-style-type: none;
-}
-
 h1,h2 {
   font-family: 'Source Serif 4', sans-serif;
 }
@@ -33,6 +30,7 @@ h1 {
   color: #fff;
 }
 
+
 p {
   color: #fff;
 }
@@ -41,11 +39,38 @@ h2 {
   font-size: 3rem;
   color: #fff;
 }
+
 h3 {
   font-size: 1.4rem;
   text-transform: uppercase;
   color: #fff;
   margin: .5rem 0;
+}
+
+.active {
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.7s;
+  z-index: 5;
+}
+
+.nav-menu.active li {
+  font-size: 2rem;
+  color: #f8f8f8;
+}
+
+.nav-menu.active li:hover {
+  color: var(--primary-color);
+  transform: scale(1.2) ;
+  transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .btn {
@@ -71,3 +96,4 @@ h3 {
     font-size: 2rem;
   }
 }
+
