@@ -6,13 +6,14 @@ import Home from '../Home/Home'
 import { addToken, deleteUser, fetchBeers, fetchBreweries, fetchReviews, postBrewery } from '../../Redux/actionCreators'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-
+import About from '../About/About'
 import Breweries from '../Brewery/Brewery'
-
 import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
 import { actions } from 'react-redux-form';
+import Contact from '../Contact/Contact'
+
 
 const mapStateToProps = state => {
     return {
@@ -99,12 +100,14 @@ class Main extends Component {
                         </div>
                         :
 
-                        <Link to='/login'>Home | </Link>
+                        <Link to='/login'></Link>
 
                     }
                     <Switch>
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
+                        <Route path='/About' component={() => <About />} />
+                        <Route path='/contact' component={() => <Contact />} />
                         <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
                         <Route exact path='/brewery' component={() => <Breweries 
                             breweries={this.props.breweries} 

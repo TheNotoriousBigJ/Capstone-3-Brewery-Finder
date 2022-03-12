@@ -41,3 +41,4 @@ Revolving around the pillars of Community, Creativity, and Inclusivity, our goal
         </>
     )
 }
+export default About

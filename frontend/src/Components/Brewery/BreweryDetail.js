@@ -102,6 +102,7 @@ const BreweryDetail = (props) => {
                         <h5>{props.brewery.address}</h5>
                         <h5>{props.brewery.phone}</h5>
                         <CreateBeer brewery={props.brewery} />
+
                     </Col>
                     <hr />
                 </div>

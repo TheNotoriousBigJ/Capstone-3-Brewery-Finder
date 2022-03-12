@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
 .navbar {
     width: 100%;
     height: 80px;
@@ -32,6 +36,11 @@
     font-size: 1.2rem;
 }
 
+.hamburger {
+    z-index: 5;
+    cursor: pointer;
+}
+
 .active {
     position: absolute;
     flex-direction: column;
@@ -46,12 +55,12 @@
     z-index: 5;
 }
 
-.nav-menu.active li {
+.navbar-menu.active li {
     font-size: 2rem;
     color: #f8f8f8;
 }
 
-.nav-menu.active li:hover {
+.navbar-menu.active li:hover {
     color: var(--primary-color);
     transform: scale(1.2) ;
     transition: 0.3s ease;

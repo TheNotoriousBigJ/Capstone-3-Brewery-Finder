@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {useState} from 'react'
+import { Container, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import { baseUrl } from '../../Shared/baseUrl';
 
@@ -17,7 +18,10 @@ const Register = (props) => {
     }
 
     return(
-        <div>
+        <>
+        <Container fluid>
+        <Col className="container">
+                    <Col className='form'>
             <h1>Create Account</h1>
             <label class="sr-only">Username</label>
             <input
@@ -53,7 +57,10 @@ const Register = (props) => {
             />
             <Link to="/login">Have an account?</Link>
             <button type="submit" onClick={handleSubmit}>Sign in</button>
-        </div>
+            </Col>
+            </Col>
+            </Container>
+        </>
     )
 }
 
