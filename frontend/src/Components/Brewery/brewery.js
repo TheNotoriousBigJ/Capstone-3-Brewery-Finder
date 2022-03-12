@@ -2,8 +2,19 @@ import React, { Component, useState } from "react";
 import { baseUrl } from '../../Shared/baseUrl';
 import { Card, Breadcrumb, Button, Row, Col, Container, Modal } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import BreweryForm from '../Forms/BreweryForm'
+import {connect} from 'react-redux'
+
+const mapStateToProps = state => {
+    return {
+        token: state.token,
+        user: state.user,
+        breweries: state.breweries,
+        beers: state.beers,
+        reviews: state.reviews
+    }
+}
 
 function RenderBrewery({ brewery }) {
     return (
@@ -60,7 +71,7 @@ function CreateBrewery(props) {
     );
 }
 
-const Breweries = (props) => {
+const Brewery = (props) => {
 
     const breweryList = props.breweries.breweries.map(brewery => {
         return (
@@ -108,4 +119,4 @@ const Breweries = (props) => {
         );
 }
 
-export default Breweries;
+export default withRouter(connect(mapStateToProps)(Brewery));

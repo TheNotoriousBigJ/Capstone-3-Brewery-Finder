@@ -23,10 +23,10 @@ function App() {
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
       <Nav.Link href="/About">About Us</Nav.Link>
-      <Nav.Link href="/Brewery">Breweries</Nav.Link>
+      <Nav.Link href="/brewery">Breweries</Nav.Link>
       <NavDropdown title="Directory" id="nav-menu">
-        <NavDropdown.Item href="/Login">Login</NavDropdown.Item>
-        <NavDropdown.Item href="/Register">Register</NavDropdown.Item>
+        <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+        <NavDropdown.Item href="/register">Register</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
       </NavDropdown>
     </Nav>
