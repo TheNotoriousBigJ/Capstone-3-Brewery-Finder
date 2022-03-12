@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import logo from '../Components/Images/logo.png'
-import './Navbar.css'
-import { Container, Navbar, Nav } from 'react-bootstrap'
-=======
 import logo from './Images/logo.png'
 import { Nav, Navbar, NavDropdown, Container, Row, Col, } from 'react-bootstrap'
->>>>>>> 2a140d073b4dc668acfad1678c300cc94bf334b6
 
 
 
