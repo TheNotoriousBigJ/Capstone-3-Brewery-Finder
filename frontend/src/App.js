@@ -28,13 +28,8 @@ function App() {
           <Main />
         </BrowserRouter>
       </div>
-<<<<<<< HEAD
-     
-=======
->>>>>>> 3f0fe6724a5317d78040eb713497017f5aac4794
-
-      
     </Provider>
+    
   );
 }
 
