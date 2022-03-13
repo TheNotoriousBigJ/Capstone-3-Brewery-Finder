@@ -6,7 +6,9 @@ import { addToken, addUser } from '../../Redux/actionCreators'
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
 import './Login.css'
-import { Container, Col } from 'react-bootstrap'
+import { Container, Col, ButtonGroup, Button } from 'react-bootstrap'
+
+
 
 
 
@@ -45,11 +47,16 @@ class Login extends Component {
         })
     }
 
+
+
+
     render() {
         return (
-            <>
             
+            <>
+           
                 <Container fluid>
+                
                 
                     
                 
@@ -80,18 +87,32 @@ class Login extends Component {
                         onChange={this.handleInputChange}
                         required
                     />
-                    <Col className="btn">
-                    <Link to="/register">Need an account?</Link>
-                    <Link to={'/home'}>
+                    
+                    
+
                         
-                        <button type="submit" onClick={this.handleLogin}>Sign in</button>
-                    </Link>
-                    </Col>
-                    </Col>
+                        <ButtonGroup aria-label="Basic example">
+                            <Link to="/register">
+  <Button variant="default" 
+  style={{ color: "white", background: "silver", margin: "6px" }}
+  type="register">Need an account?</Button>
+  </Link>
+  <Link to="/login">
+  <Button variant="default"
+  style={{ color: "white", background: "silver", margin: "6px" }}
+  type="submit" onClick={this.handleLogin}>Sign In</Button>
+  </Link>
+</ButtonGroup>
+                        
+                        </Col>
+
+                    
+                    
                     </Col>
                     
-                
+                    
                 </Container>
+                
             </>
         )
     }

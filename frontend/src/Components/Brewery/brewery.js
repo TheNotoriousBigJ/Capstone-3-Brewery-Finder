@@ -121,7 +121,8 @@ const Breweries = (props) => {
                             resetCreateBreweryForm={props.resetCreateBreweryForm} />
                     </Col>
                 </div>
-                <Row xs={1} md={4}>
+                <Row sm={1} md={2} lg={3} xl={4} xxl={5} >
+                
                     {breweryList}
                 </Row>
             </Container>
@@ -140,7 +141,7 @@ const Breweries = (props) => {
                     <h1>Breweries</h1>
                 </Col>
             </div>
-            <Row xs={1} md={4}>
+            <Row sm={1} md={2} lg={3} xl={4} xxl={5}>
                 {breweryList}
             </Row>
         </Container>

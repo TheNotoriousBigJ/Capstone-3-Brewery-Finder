@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { Container, Col, Form, FormGroup } from 'react-bootstrap';
+import { Container, Col, Form, Button, ButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import { baseUrl } from '../../Shared/baseUrl';
+import './Register.css'
 
 const Register = (props) => {
 
@@ -26,7 +27,7 @@ const Register = (props) => {
         <>
             <Container fluid>
                 <Col className="container">
-                    <Form>
+                <Col className='form'>
                         <h1>Create Account</h1>
                         <Form.Group>
                             <Form.Label class="sr-only">Username </Form.Label>
@@ -75,13 +76,30 @@ const Register = (props) => {
                                 class="form-control"
                                 onChange={(e) => setBrewerAccount(e.target.checked)}
                             />
-                        </Form.Group>
-                        <Link to="/login">Have an account?</Link>
-                        <button type="submit" onClick={handleSubmit}>Sign in</button>
 
-                    </Form>
+
+                           
+                        </Form.Group>
+                        <ButtonGroup aria-label="Basic example">
+                        <Link to="/submit">
+                            <Button variant="default" 
+                            style={{ color: "white", background: "silver", margin: "6px" }}
+                            type="submit" onClick={handleSubmit}>Sign Up</Button>
+                            </Link>
+                            {' '}
+                            <Link to="/login">
+                        <Button variant="default" 
+                        style={{ color: "white", background: "silver", margin: "6px"}}
+                        type="/login">Have an account?</Button>
+                        </Link>
+                        </ButtonGroup>
+                        
+
+                    </Col>
                 </Col>
+                
             </Container>
+            
         </>
     )
 }

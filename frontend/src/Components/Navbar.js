@@ -13,8 +13,8 @@ function App() {
           <img
             alt=""
             src={logo}
-            width="60"
-            height="70"
+            width="100"
+            height="100"
             className="d-inline-block align-top"
           />{' '}
 
