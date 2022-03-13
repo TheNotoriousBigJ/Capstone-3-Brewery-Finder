@@ -88,7 +88,7 @@ const BreweryDetail = (props) => {
             </div>
         );
     }
-    else
+    else if (props.user.authorities[0].name === "ROLE_BREWER") {
         return (
             <Container fluid>
                 <div>
@@ -118,6 +118,36 @@ const BreweryDetail = (props) => {
                 </Row>
             </Container>
         );
+    } else
+    return (
+        <Container fluid>
+            <div>
+                <Breadcrumb>
+                    <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
+                </Breadcrumb>
+                <Col md={{ span: 5, offset: 5 }}>
+                    <h2>{props.brewery.name}</h2>
+                    <Row>
+                        <h5>{props.brewery.address}</h5>
+                        <h5>{props.brewery.phone}</h5>
+                    </Row>
+                    <Row>
+                        <h3>{props.brewery.hoursOfOperation}</h3>
+                        <h3>{props.brewery.daysOfOperation}</h3>
+                    </Row>
+                    <h5>{props.brewery.description}</h5>
+                    <CreateBeer brewery={props.brewery} />
+
+                </Col>
+                <hr />
+            </div>
+            <Row md={4}>
+                {filteredBeerList}
+            </Row>
+        </Container>
+    );
 }
 
 export default BreweryDetail;

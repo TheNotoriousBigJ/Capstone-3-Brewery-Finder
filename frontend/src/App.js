@@ -13,11 +13,10 @@ function App() {
 
   return (
     <Provider store={store}>
-        <BrowserRouter>
-          <Main />
-        </BrowserRouter>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
     </Provider>
-    
   );
 }
 
