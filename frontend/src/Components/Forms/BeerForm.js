@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Button, Col, Row, FormLabel, FormGroup, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { Control, Errors, LocalForm, actions } from 'react-redux-form';
 import axios from 'axios';
@@ -37,7 +37,7 @@ const BeerForm = (props) => {
     return (
         <LocalForm model="createbeer">
             <Form.Group className="mb-3">
-                <Form.Label>Beer Name</Form.Label>
+                <Form.Label className="formlabel">Beer Name</Form.Label>
                 <Control.text model=".beerName" id="beerName" name="beerName"
                     placeholder="Name"
                     className="form-control"
@@ -57,7 +57,7 @@ const BeerForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Beer Image URL</Form.Label>
+                <Form.Label className="formlabel">Beer Image URL</Form.Label>
                 <Control.text model=".image" id="image" name="image"
                     placeholder="Image URL"
                     className="form-control"
@@ -76,7 +76,7 @@ const BeerForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Beer Description</Form.Label>
+                <Form.Label className="formlabel">Beer Description</Form.Label>
                 <Control.textarea model=".description" id="description" name="description"
                     rows="12"
                     className="form-control"
@@ -84,7 +84,7 @@ const BeerForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Beer Type</Form.Label>
+                <Form.Label className="formlabel">Beer Type</Form.Label>
                 <Control.text model=".beer_type" id="beer_type" name="beer_type"
                     placeholder="Type"
                     className="form-control"
@@ -103,7 +103,7 @@ const BeerForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Alcohol By Volume</Form.Label>
+                <Form.Label className="formlabel">Alcohol By Volume</Form.Label>
                 <Control.text model=".abv" id="abv" name="abv"
                     placeholder="Percentage"
                     className="form-control"
@@ -121,9 +121,11 @@ const BeerForm = (props) => {
                     }}
                 />
             </Form.Group>
-            <Button variant="primary" type="submit" value="submit" onClick={handleSubmit}>
-                Submit
-            </Button>
+            <Link to="/brewery/:brewery_id">
+                <Button variant="primary" type="submit" value="submit" onClick={handleSubmit}>
+                    Submit
+                </Button>
+            </Link>
         </LocalForm>
     );
 }

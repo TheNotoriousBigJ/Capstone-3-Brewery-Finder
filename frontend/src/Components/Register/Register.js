@@ -29,7 +29,7 @@ const Register = (props) => {
                     <Form>
                         <h1>Create Account</h1>
                         <Form.Group>
-                            <Form.Label class="sr-only">Username </Form.Label>
+                            <Form.Label class="sr-only formlabel">Username </Form.Label>
                             <Form.Control
                                 type="text"
                                 id="username"
@@ -42,7 +42,7 @@ const Register = (props) => {
                             />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label class="sr-only">Password</Form.Label>
+                            <Form.Label class="sr-only formlabel">Password</Form.Label>
                             <Form.Control
                                 type="password"
                                 id="password"
@@ -59,7 +59,7 @@ const Register = (props) => {
                                 type="password"
                                 id="password-confirm"
                                 name="password-confirm"
-                                class="form-control"
+                                class="form-control formlabel"
                                 placeholder="Confirm Password"
                                 v-model="user.password"
                                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -72,7 +72,7 @@ const Register = (props) => {
                                 id="brewer-select"
                                 name="brewer-select"
                                 label="Are you registering as a Brewer?"
-                                class="form-control"
+                                class="form-control formlabel"
                                 onChange={(e) => setBrewerAccount(e.target.checked)}
                             />
                         </Form.Group>

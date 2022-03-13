@@ -13,13 +13,13 @@ function RenderBrewery({ brewery }) {
 
         <Col className="wrapper" key={brewery.brewery_id}>
             <Link to={`/brewery/${brewery.brewery_id}`} >
-                <Card style={{ width: '17rem' }}>
+                <Card style={{ width: '30rem', height: '40rem', margin: '10px' }}>
                     <Card.Img variant="top" src={brewery.image} />
-                    <Card.Body>
+                    <Card.Body className="brewerytext">
                         <Card.Title>{brewery.name}</Card.Title>
                         <Card.Text>
-                            {brewery.address}</Card.Text>
-                        <Card.Text>{brewery.phone}
+                            <h5>{brewery.address}</h5></Card.Text>
+                        <Card.Text><h5>{brewery.phone}</h5>
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -36,7 +36,7 @@ function CreateBrewery(props) {
 
     return (
         <>
-            <Button size="lg" variant="outline-warning" onClick={handleShow}>
+            <Button size="lg" variant="warning" onClick={handleShow}>
                 Create a Brewery
             </Button>
 
@@ -100,10 +100,9 @@ const Breweries = (props) => {
     /*Buttons*/
     else if (props.user.authorities[0].name === "ROLE_ADMIN") {
         return (
-            <Container fluid>
+            <Container className="brewerylist" fluid>
                 <div>
                     <Breadcrumb>
-                        <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                     </Breadcrumb>
                     <Col className="text-center">
@@ -120,12 +119,11 @@ const Breweries = (props) => {
 
         );
     } else
-    
+
     return (
-        <Container fluid>
+        <Container className="brewerylist" fluid>
             <div>
                 <Breadcrumb>
-                    <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
                     <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                 </Breadcrumb>
                 <Col className="text-center">

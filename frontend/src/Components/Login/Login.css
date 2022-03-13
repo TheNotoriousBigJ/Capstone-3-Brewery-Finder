@@ -13,16 +13,22 @@
 
    }
 form.h1 {
-  color: rgb(182, 156, 107)
+  color: #d88429
 }
 
 h1 {
-  color: rgb(182, 156, 107)
+  color: #d88429
 }
 
 label {
   color : white;
 }
+
+.formlabel {
+  color: black !important;
+}
+
+
 
 
 

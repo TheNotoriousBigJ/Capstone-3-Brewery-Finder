@@ -14,8 +14,10 @@ function RenderBeer({ beer }) {
                     <Card.Body>
                         <Card.Title>{beer.name}</Card.Title>
                         <Card.Text>
-                            {beer.type}
-                            {beer.abv}
+                            {beer.beer_type}
+                        </Card.Text>
+                        <Card.Text>
+                            ABV: {beer.abv}
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -88,29 +90,35 @@ const BreweryDetail = (props) => {
             </div>
         );
     }
-    else if (props.user.authorities[0].name === "ROLE_BREWER") {
+    else if (props.user.authorities[0].name === "ROLE_BREWER" && props.brewery.userId === props.user.id) {
         return (
-            <Container fluid>
+            <Container fluid style={{marginBottom: '60px'}}>
                 <div>
                     <Breadcrumb>
-                        <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
                         <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Col md={{ span: 5, offset: 5 }}>
-                        <h2>{props.brewery.name}</h2>
-                        <Row>
-                            <h5>{props.brewery.address}</h5>
-                            <h5>{props.brewery.phone}</h5>
-                        </Row>
-                        <Row>
-                            <h3>{props.brewery.hoursOfOperation}</h3>
-                            <h3>{props.brewery.daysOfOperation}</h3>
-                        </Row>
-                        <h5>{props.brewery.description}</h5>
-                        <CreateBeer brewery={props.brewery} />
-
-                    </Col>
+                    <Card className="text-center">
+                        <Card.Body>
+                            <Card.Title>{props.brewery.name}</Card.Title>
+                            <Card.Subtitle>
+                                <h5>{props.brewery.address}</h5>
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                <h5>{props.brewery.phone}</h5>
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                {props.brewery.hoursOfOperation}
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                {props.brewery.daysOfOperation}
+                            </Card.Subtitle>
+                            <Card.Text>
+                                {props.brewery.description}
+                            </Card.Text>
+                            <CreateBeer brewery={props.brewery} />
+                        </Card.Body>
+                    </Card>
                     <hr />
                 </div>
                 <Row md={4}>
@@ -119,34 +127,40 @@ const BreweryDetail = (props) => {
             </Container>
         );
     } else
-    return (
-        <Container fluid>
-            <div>
-                <Breadcrumb>
-                    <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
-                    <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
-                    <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
-                </Breadcrumb>
-                <Col md={{ span: 5, offset: 5 }}>
-                    <h2>{props.brewery.name}</h2>
-                    <Row>
-                        <h5>{props.brewery.address}</h5>
-                        <h5>{props.brewery.phone}</h5>
-                    </Row>
-                    <Row>
-                        <h3>{props.brewery.hoursOfOperation}</h3>
-                        <h3>{props.brewery.daysOfOperation}</h3>
-                    </Row>
-                    <h5>{props.brewery.description}</h5>
-
-                </Col>
-                <hr />
-            </div>
-            <Row md={4}>
-                {filteredBeerList}
-            </Row>
-        </Container>
-    );
+        return (
+            <Container fluid style={{marginBottom: '60px'}}>
+                <div>
+                    <Breadcrumb>
+                        <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Card className="text-center">
+                        <Card.Body>
+                            <Card.Title>{props.brewery.name}</Card.Title>
+                            <Card.Subtitle>
+                                <h5>{props.brewery.address}</h5>
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                <h5>{props.brewery.phone}</h5>
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                {props.brewery.hoursOfOperation}
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                {props.brewery.daysOfOperation}
+                            </Card.Subtitle>
+                            <Card.Text>
+                                {props.brewery.description}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <hr />
+                </div>
+                <Row md={4}>
+                    {filteredBeerList}
+                </Row>
+            </Container>
+        );
 }
 
 export default BreweryDetail;

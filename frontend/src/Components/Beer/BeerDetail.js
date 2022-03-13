@@ -88,34 +88,64 @@ const BeerDetail = (props) => {
             </div>
         );
     }
+    else if (props.user.authorities[0].name === "ROLE_USER")
+        return (
+            <Container fluid>
+                <div>
+                    <Breadcrumb>
+
+                        <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item><Link to={`/brewery/${props.beer.brewery_id}`}>Brewery</Link></Breadcrumb.Item>
+                        <Breadcrumb.Item active>Beer</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Card className="text-center" bg='#5cf694'>
+                        <Card.Body>
+                            <Card.Title>{props.beer.name}</Card.Title>
+                            <Card.Subtitle>
+                                <h6>{props.beer.beer_type}</h6>
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                <h6>{props.beer.abv}</h6>
+                            </Card.Subtitle>
+                            <Card.Text>
+                                {props.beer.description}
+                            </Card.Text>
+                            <CreateReview beer={props.beer} />
+                        </Card.Body>
+                    </Card>
+                    <hr />
+                </div>
+                <Col>
+                    {filteredReviewList}
+                </Col>
+
+            </Container>
+        );
     else
         return (
             <Container fluid>
                 <div>
                     <Breadcrumb>
-                        <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
+
                         <Breadcrumb.Item><Link to="/brewery">Breweries</Link></Breadcrumb.Item>
                         <Breadcrumb.Item><Link to={`/brewery/${props.beer.brewery_id}`}>Brewery</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active>Beer</Breadcrumb.Item>
                     </Breadcrumb>
-                    <Col className="text-center">
-                        <h3>{props.beer.name}</h3>
-                        <Row>
-                            <Col>
-                                {props.beer.beer_type}
-                            </Col>
-                            <Col>
-                                {props.beer.abv}
-                            </Col>
-                        </Row>
-                        <Col>
-                            {props.beer.description}
-                        </Col>
-                        <Col>
-                            <CreateReview beer={props.beer} />
-                        </Col>
-                        <hr />
-                    </Col>
+                    <Card className="text-center" bg='#5cf694'>
+                        <Card.Body>
+                            <Card.Title>{props.beer.name}</Card.Title>
+                            <Card.Subtitle>
+                                <h6>{props.beer.beer_type}</h6>
+                            </Card.Subtitle>
+                            <Card.Subtitle>
+                                <h6>{props.beer.abv}</h6>
+                            </Card.Subtitle>
+                            <Card.Text>
+                                {props.beer.description}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <hr />
                 </div>
                 <Col>
                     {filteredReviewList}

@@ -5,6 +5,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  margin-bottom: '66px' !important;
 }
 
 body {
@@ -14,6 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f1e0 !important;
 }
 
 code {
@@ -79,12 +81,6 @@ h5 {
   color: white;
 }
 
-.login {
-  background: url("./Components/Images/background.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 @media screen and (max-width: 740px) {
   h1 {
@@ -96,7 +92,7 @@ h5 {
   }
 
   .card-title {
-    color: burlywood;
+    color: #d88429;
     text-decoration: none;
     text-transform: uppercase;
 

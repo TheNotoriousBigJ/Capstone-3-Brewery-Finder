@@ -5,12 +5,14 @@
     overflow: hidden;
     box-shadow: 0 2px 20px color grey;
     border-radius: radius;
-    display: grid; 
+    display: flex; 
     flex-direction: column;
     justify-content: space-between;
     grid-auto-flow: dense;
     cursor: pointer;
     transition: transform 200ms ease-in;
+    position: relative;
+    background-color: #91b0ae !important;
 }
 
 .card.image {
@@ -29,6 +31,15 @@
     grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
     gap: rem;
     justify-content: center;
+}
+
+.brewerytext {
+    position: absolute;
+    bottom: 0;
+}
+
+.brewerylist {
+    margin-bottom: 66px;
 }
 
 .card-title {

@@ -9,11 +9,6 @@ import './Login.css'
 import { Container, Col } from 'react-bootstrap'
 import BackgroundImage from '../Images/background.jpeg'
 
-const sectionStyle = {
-    width: "100%",
-    height: "400px",
-    backgroundImage: { BackgroundImage }
-};
 
 const mapDispatchToProps = (dispatch) => ({
     addToken: () => dispatch(addToken()),
@@ -52,12 +47,12 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="login">
-                <Container fluid>
-                    <Col className="container">
+
+                
+                    <Col className="login">
                         <Col className='form'>
                             <h1>Please Sign In</h1>
-                            <label className="sr-only">Username</label>
+                            <label className="sr-only formlabel">Username</label>
                             <input
                                 type="text"
                                 id="username"
@@ -68,7 +63,7 @@ class Login extends Component {
                                 onChange={this.handleInputChange}
                                 required
                             />
-                            <label class="sr-only">Password</label>
+                            <label class="sr-only formlabel">Password</label>
                             <input
                                 type="password"
                                 id="password"
@@ -87,8 +82,6 @@ class Login extends Component {
                             </Col>
                         </Col>
                     </Col>
-                </Container>
-            </div>
         )
     }
 }

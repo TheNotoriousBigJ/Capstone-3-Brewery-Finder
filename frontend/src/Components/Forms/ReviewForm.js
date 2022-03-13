@@ -24,7 +24,7 @@ const ReviewForm = (props) => {
             review: review,
             rating: rating,
             beer_id: thisBeer_Id,
-            user_id: 1
+            user_id: props.user.id
         }
         await axios.post(baseUrl + '/reviews', data);
     }
@@ -32,7 +32,7 @@ const ReviewForm = (props) => {
     return (
         <LocalForm model="createreview">
             <Form.Group className="mb-3">
-                <Form.Label>Rate This Beer</Form.Label>
+                <Form.Label className="formlabel">Rate This Beer</Form.Label>
                 <Control.select model=".rating" name="rating"
                     className="form-control"
                     onChange={(e) => setRating(e.target.value)}>
@@ -44,7 +44,7 @@ const ReviewForm = (props) => {
                 </Control.select>
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Review</Form.Label>
+                <Form.Label className="formlabel">Review</Form.Label>
                 <Control.textarea model=".review" id="review" name="review"
                     placeholder="Write your review here"
                     className="form-control"

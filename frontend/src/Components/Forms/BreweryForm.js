@@ -24,7 +24,8 @@ const BreweryForm = (props) => {
     const [description, setDescription] = useState("");
     const [hoursofoperation, setHoursOfOperation] = useState("");
     const [daysofoperation, setDaysOfOperation] = useState("");
-    const [brewery, setBrewery] = useState([]);
+    const [brewery, setBrewery] = useState([""]);
+    const [userId, setBrewer] = useState([""]);
 
     const handleSubmit = async () => {
         const data = {
@@ -37,6 +38,7 @@ const BreweryForm = (props) => {
             description: description,
             hoursOfOperation: hoursofoperation,
             daysOfOperation: daysofoperation,
+            userId: userId
         }
         await axios.post(baseUrl + '/breweries', data)
         setBrewery([...brewery, data]);
@@ -46,7 +48,7 @@ const BreweryForm = (props) => {
     return (
         <LocalForm model="createbrewery">
             <Form.Group className="mb-3">
-                <Form.Label>Brewery Name</Form.Label>
+                <Form.Label className="formlabel">Brewery Name</Form.Label>
                 <Control.text model=".breweryName" id="breweryName" name="breweryName"
                     placeholder="Name"
                     className="form-control"
@@ -66,7 +68,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Brewery Address</Form.Label>
+                <Form.Label className="formlabel">Brewery Address</Form.Label>
                 <Control.text model=".address" id="address" name="address"
                     placeholder="Address"
                     className="form-control"
@@ -85,7 +87,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Brewery Image URL</Form.Label>
+                <Form.Label className="formlabel">Brewery Image URL</Form.Label>
                 <Control.text model=".image" id="image" name="image"
                     placeholder="Image URL"
                     className="form-control"
@@ -104,7 +106,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Web Address</Form.Label>
+                <Form.Label className="formlabel">Web Address</Form.Label>
                 <Control.text model=".websiteUrl" id="websiteUrl" name="websiteUrl"
                     placeholder="Website URL"
                     className="form-control"
@@ -124,7 +126,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Brewery Phone Number</Form.Label>
+                <Form.Label className="formlabel">Brewery Phone Number</Form.Label>
                 <Control.text model=".phone" id="phone" name="phone"
                     placeholder="Phone Number"
                     className="form-control"
@@ -146,7 +148,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Brewery Email</Form.Label>
+                <Form.Label className="formlabel">Brewery Email</Form.Label>
                 <Control.text model=".email" id="email" name="email"
                     placeholder="Email"
                     className="form-control"
@@ -167,7 +169,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Brewery Description</Form.Label>
+                <Form.Label className="formlabel">Brewery Description</Form.Label>
                 <Control.textarea model=".description" id="description" name="description"
                     rows="12"
                     className="form-control"
@@ -175,7 +177,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Hours of Operation</Form.Label>
+                <Form.Label className="formlabel">Hours of Operation</Form.Label>
                 <Control.text model=".hoursofoperation" id="hoursofoperation" name="hoursofoperation"
                     placeholder="Hours of Operation"
                     className="form-control"
@@ -194,7 +196,7 @@ const BreweryForm = (props) => {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
-                <Form.Label>Days of Operation</Form.Label>
+                <Form.Label className="formlabel">Days of Operation</Form.Label>
                 <Control.text model=".daysofoperation" id="daysofoperation" name="daysofoperation"
                     placeholder="Days"
                     className="form-control"
@@ -212,9 +214,30 @@ const BreweryForm = (props) => {
                     }}
                 />
             </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label className="formlabel">Brewer ID</Form.Label>
+                <Control.text model=".brewerid" id="brewerid" name="brewerid"
+                    placeholder="#"
+                    className="form-control"
+                    onChange={(e) => setBrewer(e.target.value)}
+                    validators={{
+                        minLength: minLength(1), maxLength: maxLength(5), isNumber, required
+                    }} />
+                <Errors
+                    className="text-danger"
+                    model=".daysofoperation"
+                    show={{ touched: true, focus: true }}
+                    messages={{
+                        minLength: 'Must have entry',
+                        maxLength: 'Must be 5 characters or less'
+                    }}
+                />
+            </Form.Group>
+            <Link to="/brewery">
             <Button variant="primary" type="submit" value="submit" onClick={handleSubmit}>
                 Submit
             </Button>
+            </Link>
         </LocalForm>
     );
 }
