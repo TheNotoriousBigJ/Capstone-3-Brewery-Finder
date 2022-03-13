@@ -188,13 +188,13 @@ INSERT INTO beers (name, image, description, beer_type, abv, brewery_id) VALUES 
 INSERT INTO beers (name, image, description, beer_type, abv, brewery_id) VALUES ('ORDERVILLE', 'http://www.moderntimesbeer.com/sites/default/files/beer/orderville_0.jpg', 'Orderville is an aggressive, fragrant IPA that blends the fruit-forward character of Mosaic hops with resinous stickiness from a mélange of dank hops', 'IPA', '7.20%', 10);
 INSERT INTO beers (name, image, description, beer_type, abv, brewery_id) VALUES ('DINGO MAGIC', 'http://www.moderntimesbeer.com/sites/default/files/beer/DingoMagic_Front.jpg', 'Delightful barrage of bright citrus, guava, peach, and sundry tropical radness, all coming together to form a liquid palanquin upon which to gently deliver your tastebuds into the loving arms of the flavor gods', 'Hazy IPA', '6.20%', 10);
 
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (1, 1, 1.5, 'Tastes like water mixed with more water with a water chaser');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (1, 1, 1, 'Tastes like water mixed with more water with a water chaser');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (2, 1, 4, 'Excellent Brew, hopefully they keep making this!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (3, 1, 5, 'This is my new favorite');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (4, 1, 3.5, 'Mediocre beer');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (4, 1, 3, 'Mediocre beer');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (5, 1, 5, 'Its on fire!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (6, 1, 5, 'This is one of the most unique beers I have had, it tastes great too');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (7, 1, 2.5, 'Not my style');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (7, 1, 2, 'Not my style');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (8, 1, 5, 'I like it a lot');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (9, 1, 3, 'It was not the worst, but definitely not the best');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (10, 1, 5, 'Tastes like water mixed with more water with a water chaser');
@@ -202,20 +202,20 @@ INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (10, 1, 5, 'Tastes
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (11, 1, 5, 'Tastes like water mixed with more water with a water chaser');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (12, 1, 4, 'Excellent Brew, hopefully they keep making this!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (13, 1, 5, 'This is my new favorite');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (14, 1, 3.5, 'Mediocre beer');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (14, 1, 3, 'Mediocre beer');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (15, 1, 5, 'Its on fire!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (16, 1, 5, 'This is one of the most unique beers I have had, it tastes great too');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (17, 1, 2.5, 'Not my style');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (17, 1, 2, 'Not my style');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (18, 1, 3, 'I like it a lot');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (19, 1, 5, 'It was not the worst, but definitely not the best');
 
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (20, 1, 5, 'Tastes like water mixed with more water with a water chaser');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (21, 1, 4, 'Excellent Brew, hopefully they keep making this!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (22, 1, 5, 'This is my new favorite');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (23, 1, 3.5, 'Mediocre beer');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (23, 1, 3, 'Mediocre beer');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (24, 1, 5, 'Its on fire!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (25, 1, 5, 'This is one of the most unique beers I have had, it tastes great too');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (26, 1, 2.5, 'Not my style');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (26, 1, 2, 'Not my style');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (27, 1, 5, 'I like it a lot');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (28, 1, 3, 'It was not the worst, but definitely not the best');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (29, 1, 3, 'Okay-ish beer');
@@ -231,18 +231,18 @@ INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (36, 1, 5, 'This i
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (37, 1, 5, 'Love the quality of beer');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (38, 1, 4, 'I like it a lot');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (39, 1, 3, 'It was not the worst, but definitely not the best');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (40, 1, 2.5, 'Okay-ish beer');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (40, 1, 2, 'Okay-ish beer');
 
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (41, 1, 5, 'Excellent Brew, hopefully they keep making this!');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (42, 1, 5, 'This is my new favorite');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (43, 1, 3, 'Mediocre beer');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (44, 1, 5, 'Its on fire!');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (45, 1, 2.5, 'Not my style');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (45, 1, 2, 'Not my style');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (46, 1, 5, 'Love the quality of beer');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (47, 1, 5, 'I like it a lot');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (48, 1, 3, 'It was not the worst, but definitely not the best');
 INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (49, 1, 3, 'Okay-ish beer');
-INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (50, 1, 1.5, 'This beer sucks');
+INSERT INTO reviews (beer_id, user_id, rating, review) VALUES (50, 1, 1, 'This beer sucks');
 
 
 COMMIT TRANSACTION;

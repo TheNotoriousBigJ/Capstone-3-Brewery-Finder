@@ -1,5 +1,5 @@
 import logo from './Images/logo.png'
-import { Nav, Navbar, NavDropdown, Container, Row, Col, } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container, Row, Col, NavbarBrand, } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -36,13 +36,7 @@ function App() {
                     <Link to="/register">
                       <NavDropdown.Item href="/register">Register</NavDropdown.Item>
                     </Link>
-                    <Link to="/home">
-                      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    </Link>
                   </NavDropdown>
-                </Nav>
-                <Nav>
-                  <Nav.Link href="/Contact">Contact Us</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Col>

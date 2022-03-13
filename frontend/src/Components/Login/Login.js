@@ -7,10 +7,13 @@ import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
 import './Login.css'
 import { Container, Col, ButtonGroup, Button } from 'react-bootstrap'
+import BackgroundImage from '../Images/background.jpeg'
 
-
-
-
+const sectionStyle = {
+    width: "100%",
+    height: "400px",
+    backgroundImage: { BackgroundImage }
+};
 
 const mapDispatchToProps = (dispatch) => ({
     addToken: () => dispatch(addToken()),
