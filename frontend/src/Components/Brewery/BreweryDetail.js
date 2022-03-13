@@ -138,7 +138,6 @@ const BreweryDetail = (props) => {
                         <h3>{props.brewery.daysOfOperation}</h3>
                     </Row>
                     <h5>{props.brewery.description}</h5>
-                    <CreateBeer brewery={props.brewery} />
 
                 </Col>
                 <hr />
