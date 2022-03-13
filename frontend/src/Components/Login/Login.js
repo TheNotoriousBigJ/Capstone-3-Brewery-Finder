@@ -58,7 +58,7 @@ class Login extends Component {
                     <Col className='form'>
                     <h1>Please Sign In</h1>
                     
-                    <label class="sr-only">Username</label>
+                    <label className="sr-only">Username</label>
                     <input
                         type="text"
                         id="username"

@@ -13,15 +13,10 @@ function App() {
 
   return (
     <Provider store={store}>
-        <BrowserRouter>
-          <Main />
-        </BrowserRouter>
-<<<<<<< HEAD
-      </div>
-=======
->>>>>>> 7471c9e02f646fc6a93448592fd4480a9d96a4ff
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
     </Provider>
-    
   );
 }
 

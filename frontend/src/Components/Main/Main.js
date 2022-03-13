@@ -11,6 +11,7 @@ import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
 import { actions } from 'react-redux-form';
+import Navbar from '../Navbar'
 
 const mapStateToProps = state => {
     return {
@@ -78,8 +79,8 @@ class Main extends Component {
 
         const ReviewWithId = ({ match }) => {
             return (
-                <ReviewDetail review={this.props.reviews.reviews.filter((review) => 
-                        review.review_id === parseInt(match.params.review_id, 10))[0]}
+                <ReviewDetail review={this.props.reviews.reviews.filter((review) =>
+                    review.review_id === parseInt(match.params.review_id, 10))[0]}
                     isLoading={this.props.reviews.isLoading}
                     errMess={this.props.reviews.errMess}
                     user={this.props.user}
@@ -98,19 +99,20 @@ class Main extends Component {
 
                         </div>
                         :
-
-                        <Link to='/login'>Home | </Link>
-
+                        <>
+                            <Navbar />
+                            <Link to='/login'>Home | </Link>
+                        </>
                     }
                     <Switch>
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
                         <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
                         <Route exact path='/brewery' component={() => <Brewery
-                            breweries={this.props.breweries} 
-                            postBrewery={this.props.postBrewery} 
+                            breweries={this.props.breweries}
+                            postBrewery={this.props.postBrewery}
                             resetCreateBreweryForm={this.props.resetCreateBreweryForm}
-                             />} />
+                        />} />
                         <Route path="/brewery/:brewery_id" component={BreweryWithId} />
                         <Route path="/beer/:beer_id" component={BeerWithId} />
                         <Route path="/review/:review_id" component={ReviewWithId} />
