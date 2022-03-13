@@ -106,7 +106,7 @@ const Breweries = (props) => {
     }
 
     /*Buttons*/
-    else
+    else if (props.user.authorities[0].name === "ROLE_ADMIN") {
         return (
             <Container fluid>
                 <div>
@@ -121,12 +121,33 @@ const Breweries = (props) => {
                             resetCreateBreweryForm={props.resetCreateBreweryForm} />
                     </Col>
                 </div>
-                <Row md={4}>
+                <Row xs={1} md={4}>
                     {breweryList}
                 </Row>
             </Container>
             
         );
+    } else
+    console.log(props.user.authorities[0].name);
+    return (
+        <Container fluid>
+            <div>
+                <Breadcrumb>
+                    <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item active>Brewery</Breadcrumb.Item>
+                </Breadcrumb>
+                <Col className="text-center">
+                    <h1>Breweries</h1>
+                </Col>
+            </div>
+            <Row xs={1} md={4}>
+                {breweryList}
+            </Row>
+        </Container>
+        
+        
+    );
+    
 }
 
 export default Breweries;
