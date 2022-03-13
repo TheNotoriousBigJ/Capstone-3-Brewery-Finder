@@ -11,6 +11,7 @@ import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
 import { actions } from 'react-redux-form';
+import Navbar from '../Navbar'
 
 const mapStateToProps = state => {
     return {
@@ -98,8 +99,11 @@ class Main extends Component {
 
                         </div>
                         :
+                        <>
 
-                        <Link to='/login'>Home | </Link>
+                          <Navbar/>
+                          <Link to='/login'>Home | </Link>
+                        </>
 
                     }
                     <Switch>
