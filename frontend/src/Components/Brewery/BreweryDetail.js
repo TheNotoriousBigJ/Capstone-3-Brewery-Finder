@@ -113,7 +113,7 @@ const BreweryDetail = (props) => {
                     </Col>
                     <hr />
                 </div>
-                <Row md={4}>
+                <Row sm={1} md={2} lg={3} xl={4} xxl={5}>
                     {filteredBeerList}
                 </Row>
             </Container>
@@ -138,12 +138,11 @@ const BreweryDetail = (props) => {
                         <h3>{props.brewery.daysOfOperation}</h3>
                     </Row>
                     <h5>{props.brewery.description}</h5>
-                    <CreateBeer brewery={props.brewery} />
 
                 </Col>
                 <hr />
             </div>
-            <Row md={4}>
+            <Row sm={1} md={2} lg={3} xl={4} xxl={5}>
                 {filteredBeerList}
             </Row>
         </Container>

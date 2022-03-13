@@ -79,6 +79,13 @@ h5 {
   color: white;
 }
 
+.login {
+  background: url("./Components/Images/background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @media screen and (max-width: 740px) {
   h1 {
     font-size: 3rem;
@@ -98,5 +105,6 @@ h5 {
   a.card-title {
     color: white
   }
+  
 
 }

@@ -11,28 +11,20 @@ function RenderBrewery({ brewery }) {
     return (
 
 
-<Col className="wrapper" key={brewery.brewery_id}>
-<Link to={`/brewery/${brewery.brewery_id}`} >
-<Card style={{ width: '17rem' }}>
-  <Card.Img variant="top" src={brewery.image} />
-  <Card.Body>
-    <Card.Title>{brewery.name}</Card.Title>
-    <Card.Text>
-      {brewery.address}</Card.Text>
-      <Card.Text>{brewery.phone}
-    </Card.Text>
-  </Card.Body>
-</Card>
-</Link>
-</Col>
-
-
-       
-        
-
-        
-        
-        
+        <Col className="wrapper" key={brewery.brewery_id}>
+            <Link to={`/brewery/${brewery.brewery_id}`} >
+                <Card style={{ width: '17rem' }}>
+                    <Card.Img variant="top" src={brewery.image} />
+                    <Card.Body>
+                        <Card.Title>{brewery.name}</Card.Title>
+                        <Card.Text>
+                            {brewery.address}</Card.Text>
+                        <Card.Text>{brewery.phone}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Link>
+        </Col>
     )
 }
 
@@ -80,16 +72,16 @@ const Breweries = (props) => {
         )
     });
 
-    
+
 
     if (props.breweries.isLoading) {
         return (
             <div className="App">
-            <div className="container">
-                <div className="row">
-                    <Loading />
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
                 </div>
-            </div>
             </div>
         );
     }
@@ -101,7 +93,7 @@ const Breweries = (props) => {
 
                 </div>
             </div>
-            
+
         );
     }
 
@@ -121,14 +113,15 @@ const Breweries = (props) => {
                             resetCreateBreweryForm={props.resetCreateBreweryForm} />
                     </Col>
                 </div>
-                <Row xs={1} md={4}>
+                <Row sm={1} md={2} lg={3} xl={4} xxl={5} >
+                
                     {breweryList}
                 </Row>
             </Container>
-            
+
         );
     } else
-    console.log(props.user.authorities[0].name);
+    
     return (
         <Container fluid>
             <div>
@@ -140,14 +133,14 @@ const Breweries = (props) => {
                     <h1>Breweries</h1>
                 </Col>
             </div>
-            <Row xs={1} md={4}>
+            <Row sm={1} md={2} lg={3} xl={4} xxl={5}>
                 {breweryList}
             </Row>
         </Container>
-        
-        
+
+
     );
-    
+
 }
 
 export default Breweries;

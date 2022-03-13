@@ -13,6 +13,7 @@ import ReviewDetail from '../Review/ReviewDetail'
 import { actions } from 'react-redux-form';
 import Navbar from '../Navbar'
 import About from '../About/About'
+import Footer from '../Footer'
 
 const mapStateToProps = state => {
     return {
@@ -129,6 +130,7 @@ class Main extends Component {
                         <Redirect to='/login' />
 
                     </Switch>
+                    <Footer/>
                 </div>
             </div>
         )
