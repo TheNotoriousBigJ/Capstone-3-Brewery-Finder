@@ -11,6 +11,8 @@ import BreweryDetail from '../Brewery/BreweryDetail'
 import BeerDetail from '../Beer/BeerDetail'
 import ReviewDetail from '../Review/ReviewDetail'
 import { actions } from 'react-redux-form';
+import Navbar from '../Navbar'
+import About from '../About/About'
 
 const mapStateToProps = state => {
     return {
@@ -98,13 +100,16 @@ class Main extends Component {
 
                         </div>
                         :
-
-                        <Link to='/login'>Home | </Link>
+                        <>
+                        
+                        <Navbar />
+                        </>
 
                     }
                     <Switch>
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
+                        <Route path='/about' component={() => <About />} />
                         <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
                         <Route exact path='/brewery' component={() => <Brewery
                             breweries={this.props.breweries} 

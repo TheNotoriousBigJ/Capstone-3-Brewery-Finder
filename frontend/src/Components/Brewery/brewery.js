@@ -1,40 +1,36 @@
 import React, { Component, useState } from "react";
-import { baseUrl } from '../../Shared/baseUrl';
-import { Card, Breadcrumb, Button, Row, Col, Container, Modal } from 'react-bootstrap';
+import { Breadcrumb, Button, Row, Col, Container, Modal } from 'react-bootstrap';
 import { Loading } from '../Loading/Loading';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import BreweryForm from '../Forms/BreweryForm'
-import {connect} from 'react-redux'
 import './Brewery.css'
+import Card from 'react-bootstrap/Card'
 
-const mapStateToProps = state => {
-    return {
-        token: state.token,
-        user: state.user,
-        breweries: state.breweries,
-        beers: state.beers,
-        reviews: state.reviews
-    }
-}
 
 function RenderBrewery({ brewery }) {
     return (
+
+
+<Col className="wrapper" key={brewery.brewery_id}>
+<Link to={`/brewery/${brewery.brewery_id}`} >
+<Card style={{ width: '17rem' }}>
+  <Card.Img variant="top" src={brewery.image} />
+  <Card.Body>
+    <Card.Title>{brewery.name}</Card.Title>
+    <Card.Text>
+      {brewery.address}</Card.Text>
+      <Card.Text>{brewery.phone}
+    </Card.Text>
+  </Card.Body>
+</Card>
+</Link>
+</Col>
+
+
        
         
-        <Col key={brewery.brewery_id}>
-            <Link to={`/brewery/${brewery.brewery_id}`} >
-                <Card border="light" style={{ width: '30rem', height: '40rem', margin: '10px'}}>
-                    <Card.Img variant="top" src={brewery.image} />
-                    <Card.Body>
-                        <Card.Title>{brewery.name}</Card.Title>
-                        <Card.Text>
-                            {brewery.address}
-                            {brewery.phone}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Link>
-        </Col>
+
+        
         
         
     )
@@ -76,7 +72,7 @@ function CreateBrewery(props) {
     );
 }
 
-const Brewery = (props) => {
+const Breweries = (props) => {
 
     const breweryList = props.breweries.breweries.map(brewery => {
         return (
@@ -133,4 +129,4 @@ const Brewery = (props) => {
         );
 }
 
-export default withRouter(connect(mapStateToProps)(Brewery));
+export default Breweries;

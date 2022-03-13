@@ -158,5 +158,11 @@ border: 1px solid var(--secondary);
 .hero .col-2 {
     display: none;
 }
+
+.breweryfont {
+    font-size: 14em;
+    color: #fff;
+}
+
 }
 
