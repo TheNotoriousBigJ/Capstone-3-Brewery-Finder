@@ -62,6 +62,7 @@ class Main extends Component {
                     beers={this.props.beers}
                     postBrewery={this.props.postBrewery}
                     user={this.props.user}
+                    token={this.props.token.token}
                 />
             )
         }
@@ -73,6 +74,7 @@ class Main extends Component {
                     errMess={this.props.beers.errMess}
                     reviews={this.props.reviews}
                     user={this.props.user}
+                    token={this.props.token.token}
                 />
             )
         }
@@ -84,6 +86,7 @@ class Main extends Component {
                     isLoading={this.props.reviews.isLoading}
                     errMess={this.props.reviews.errMess}
                     user={this.props.user}
+                    token={this.props.token.token}
                 />
             )
         }
@@ -93,6 +96,8 @@ class Main extends Component {
                 <div>
                     {this.props.token.token !== undefined ?
                         <div>
+                            <Navbar user={this.props.user}
+                                    token={this.props.token.token} />
                             <Link to='/home'>Home | </Link>
                             <Link to='/login' onClick={this.handleLogout}>logout</Link>
                             <Redirect to='/home' />
@@ -100,7 +105,8 @@ class Main extends Component {
                         </div>
                         :
                         <>
-                            <Navbar />
+                            <Navbar user={this.props.user}
+                                    token={this.props.token.token}/>
                             <Link to='/login'>Home | </Link>
                         </>
                     }
@@ -108,14 +114,16 @@ class Main extends Component {
                         <Route path='/login' component={() => <Login />} />
                         <Route path='/register' component={() => <Register />} />
                         <Route path='/home' component={this.props.token.token !== undefined ? () => <Home /> : null} />
-                        <Route exact path='/brewery' component={() => <Brewery
+                        <Route exact path='/brewery' component={this.props.token.token !== undefined ? () => <Brewery
                             breweries={this.props.breweries}
                             postBrewery={this.props.postBrewery}
                             resetCreateBreweryForm={this.props.resetCreateBreweryForm}
-                        />} />
-                        <Route path="/brewery/:brewery_id" component={BreweryWithId} />
-                        <Route path="/beer/:beer_id" component={BeerWithId} />
-                        <Route path="/review/:review_id" component={ReviewWithId} />
+                            token={this.props.token.token}
+                            user={this.props.user}
+                        /> : null} />
+                        <Route path="/brewery/:brewery_id" component={this.props.token.token !== undefined ? BreweryWithId : null} />
+                        <Route path="/beer/:beer_id" component={this.props.token.token !== undefined ? BeerWithId : null} />
+                        <Route path="/review/:review_id" component={this.props.token.token !== undefined ? ReviewWithId : null} />
                         <Redirect to='/login' />
 
                     </Switch>
