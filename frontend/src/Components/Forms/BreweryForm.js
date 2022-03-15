@@ -1,9 +1,11 @@
 import React, { Component, useState } from 'react';
-import { Button, Col, Row, FormLabel, FormGroup, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { Control, Errors, LocalForm } from 'react-redux-form';
 import axios from 'axios';
 import { baseUrl } from '../../Shared/baseUrl';
+import { connect } from 'react-redux';
+import { fetchBreweries } from '../../Redux/actionCreators';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -11,6 +13,9 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
+const mapDispatchToProps = (dispatch) => ({
+    fetchBreweries: () => { dispatch(fetchBreweries()) }
+});
 
 const BreweryForm = (props) => {
 
@@ -41,7 +46,7 @@ const BreweryForm = (props) => {
             userId: userId
         }
         await axios.post(baseUrl + '/breweries', data)
-        setBrewery([...brewery, data]);
+        await props.dispatch(fetchBreweries());
 
     }
 
@@ -242,4 +247,4 @@ const BreweryForm = (props) => {
     );
 }
 
-export default BreweryForm;
+export default withRouter(connect(mapDispatchToProps)(BreweryForm));

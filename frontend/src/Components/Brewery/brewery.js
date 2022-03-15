@@ -7,13 +7,13 @@ import './Brewery.css'
 import Card from 'react-bootstrap/Card'
 
 
-function RenderBrewery({ brewery }) {
+function RenderBrewery({ brewery, token }) {
     return (
 
 
         <Col className="wrapper" key={brewery.brewery_id}>
             <Link to={`/brewery/${brewery.brewery_id}`} >
-                <Card style={{ width: '30rem', height: '40rem', margin: '10px' }}>
+                <Card border={'light'} style={{ width: '30rem', height: '40rem', margin: '10px' }}>
                     <Card.Img variant="top" src={brewery.image} />
                     <Card.Body className="brewerytext">
                         <Card.Title>{brewery.name}</Card.Title>
@@ -66,6 +66,8 @@ function CreateBrewery(props) {
 
 const Breweries = (props) => {
 
+    const token = props.token;
+
     const breweryList = props.breweries.breweries.map(brewery => {
         return (
             <RenderBrewery brewery={brewery} />
@@ -112,7 +114,8 @@ const Breweries = (props) => {
                             resetCreateBreweryForm={props.resetCreateBreweryForm} />
                     </Col>
                 </div>
-                <Row xs={1} md={4}>
+                <Row sm={1} md={2} lg={3} xl={4} xxl={4} >
+                
                     {breweryList}
                 </Row>
             </Container>
@@ -130,7 +133,7 @@ const Breweries = (props) => {
                     <h1>Breweries</h1>
                 </Col>
             </div>
-            <Row xs={1} md={4}>
+            <Row sm={1} md={2} lg={3} xl={4} xxl={4}>
                 {breweryList}
             </Row>
         </Container>

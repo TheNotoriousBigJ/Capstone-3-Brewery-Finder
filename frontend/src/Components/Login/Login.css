@@ -2,6 +2,7 @@
 
 
 .form {
+  font-family:roboto,sans-serif;
     padding: remy(32px);
     margin-right: auto;
     margin-left: auto;
@@ -13,7 +14,8 @@
 
    }
 form.h1 {
-  color: #d88429
+  color: #d88429;
+  font-family: roboto,sans-serif;
 }
 
 h1 {
@@ -29,6 +31,19 @@ label {
 }
 
 
+button.submit {
+  position: absolute;
+	display: grid;
+	place-content: center;
+	transition: opacity .3s;
+	pointer-events: none;
+	text-shadow: 0px 2px 5px rgba(0,0,0,.1);
+}
+
+label {
+  text-shadow: 0px 2px 5px rgba(0,0,0,.1);
+  color:black
+}
 
 
 

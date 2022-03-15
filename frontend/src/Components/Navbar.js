@@ -10,16 +10,14 @@ function App() {
     <div className="Navbar">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <NavbarBrand>
-              <img
-                alt=""
-                src={logo}
-                width="60"
-                height="70"
-                className="d-inline-block align-center"
-              />{' '}
-              <h4>Brewsers</h4>
-          </NavbarBrand>
+          <img
+            alt=""
+            src={logo}
+            width="100"
+            height="100"
+            className="d-inline-block align-top"
+          />{' '}
+
           <Row>
             <Col>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />

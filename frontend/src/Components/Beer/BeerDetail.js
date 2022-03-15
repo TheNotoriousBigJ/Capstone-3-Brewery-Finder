@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 import { User } from "../../Redux/user";
 import ReviewForm from "../Forms/ReviewForm";
 
-function RenderReview({ review }) {
+function RenderReview({ review, user }) {
     return (
         <Col key={review.review_id}>
             <Card border="light" bg="secondary">
                 <Card.Body>
-                    <Card.Title>username</Card.Title>
+                    <Card.Title>{user.username}</Card.Title>
                     <Card.Text>
                         {review.rating}
                     </Card.Text>
@@ -66,7 +66,7 @@ const BeerDetail = (props) => {
 
     const filteredReviewList = reviewList.map(review => {
         return (
-            <RenderReview review={review} />
+            <RenderReview review={review} user={props.user} />
         )
     });
 
@@ -110,7 +110,7 @@ const BeerDetail = (props) => {
                             <Card.Text>
                                 {props.beer.description}
                             </Card.Text>
-                            <CreateReview beer={props.beer} />
+                            <CreateReview beer={props.beer} user={props.user} />
                         </Card.Body>
                     </Card>
                     <hr />

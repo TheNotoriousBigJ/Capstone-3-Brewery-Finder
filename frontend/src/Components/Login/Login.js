@@ -6,14 +6,15 @@ import { addToken, addUser } from '../../Redux/actionCreators'
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
 import './Login.css'
-import { Container, Col } from 'react-bootstrap'
-import BackgroundImage from '../Images/background.jpeg'
+import { Container, Col, ButtonGroup, Button } from 'react-bootstrap'
+
 
 
 const mapDispatchToProps = (dispatch) => ({
     addToken: () => dispatch(addToken()),
     addUser: () => dispatch(addUser())
 });
+
 
 class Login extends Component {
 
@@ -45,14 +46,19 @@ class Login extends Component {
         })
     }
 
+
+
+
     render() {
         return (
 
-                
-                    <Col className="login">
+            <>
+                <Container fluid>
+                    <Col className="container">
                         <Col className='form'>
                             <h1>Please Sign In</h1>
-                            <label className="sr-only formlabel">Username</label>
+
+                            <label className="sr-only">Username</label>
                             <input
                                 type="text"
                                 id="username"
@@ -63,7 +69,7 @@ class Login extends Component {
                                 onChange={this.handleInputChange}
                                 required
                             />
-                            <label class="sr-only formlabel">Password</label>
+                            <label class="sr-only">Password</label>
                             <input
                                 type="password"
                                 id="password"
@@ -74,14 +80,22 @@ class Login extends Component {
                                 onChange={this.handleInputChange}
                                 required
                             />
-                            <Col className="btn">
-                                <Link to="/register">Need an account?</Link>
-                                <Link to={'/home'}>
-                                    <button type="submit" onClick={this.handleLogin}>Sign in</button>
+                            <ButtonGroup aria-label="Basic example">
+                                <Link to="/register">
+                                    <Button variant="default"
+                                        style={{ color: "white", background: "silver", margin: "6px" }}
+                                        type="register">Need an account?</Button>
                                 </Link>
-                            </Col>
+                                <Link to="/login">
+                                    <Button variant="default"
+                                        style={{ color: "white", background: "silver", margin: "6px" }}
+                                        type="submit" onClick={this.handleLogin}>Sign In</Button>
+                                </Link>
+                            </ButtonGroup>
                         </Col>
                     </Col>
+                </Container>
+            </>
         )
     }
 }

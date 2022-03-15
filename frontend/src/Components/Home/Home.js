@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, Col, Button } from 'react-bootstrap'
 import './Home.css'
-import {Link} from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const Home = () => {
     return (
@@ -39,4 +40,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default withRouter(Home);

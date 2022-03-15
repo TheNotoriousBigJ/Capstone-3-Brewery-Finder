@@ -1,0 +1,9 @@
+.mb-3 {
+padding: remy(32px);
+margin-right: auto;
+margin-left: auto;
+padding-top: 100px;
+max-width: 500px;
+border-radius: radius;
+box-shadow: 0 15px 35px rgba(50, 50, 93, .1), inset 0 5px 15 rgba(0, 0, 0, .07);
+}

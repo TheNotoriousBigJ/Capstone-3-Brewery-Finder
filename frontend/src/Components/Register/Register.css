@@ -13,13 +13,28 @@
 
    }
 form.h1 {
-  color: #d88429
+  color: burlywood;
 }
 
 h1 {
-  color: #d88429
+  color: burlywood;
 }
 
 label {
   color : white;
 }
+
+btn.submit {
+  position: absolute;
+	display: grid;
+	place-content: center;
+	transition: opacity .3s;
+	pointer-events: none;
+	text-shadow: 0px 2px 5px rgba(0,0,0,.1);
+}
+
+label {
+  text-shadow: 0px 2px 5px rgba(0,0,0,.1);
+  color:black
+}
+
