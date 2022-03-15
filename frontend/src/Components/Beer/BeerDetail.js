@@ -13,10 +13,10 @@ function RenderReview({ review, user }) {
                 <Card.Body>
                     <Card.Title>{user.username}</Card.Title>
                     <Card.Text>
-                        Rating: {review.rating}
+                        <h5 style={{color: 'white'}}>Rating: {review.rating}</h5>
                     </Card.Text>
                     <Card.Text>
-                        {review.review}
+                    <h5 style={{color: 'white'}}>{review.review}</h5>
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -100,9 +100,9 @@ const BeerDetail = (props) => {
                     </Breadcrumb>
                     <Card className="text-center" bg='#5cf694'>
                         <Card.Body>
-                            <Card.Title>{props.beer.name}</Card.Title>
+                            <Card.Title><h1>{props.beer.name}</h1></Card.Title>
                             <Card.Subtitle>
-                                <h6>{props.beer.beer_type}</h6>
+                                <h3>{props.beer.beer_type}</h3>
                             </Card.Subtitle>
                             <Card.Subtitle>
                                 <h6>{props.beer.abv}</h6>
@@ -133,15 +133,15 @@ const BeerDetail = (props) => {
                     </Breadcrumb>
                     <Card className="text-center" bg='#5cf694'>
                         <Card.Body>
-                            <Card.Title>{props.beer.name}</Card.Title>
+                            <Card.Title><h1>{props.beer.name}</h1></Card.Title>
                             <Card.Subtitle>
-                                <h6>{props.beer.beer_type}</h6>
+                            <h3>{props.beer.beer_type}</h3>
                             </Card.Subtitle>
                             <Card.Subtitle>
-                                <h6>{props.beer.abv}</h6>
+                                <h4>ABV: {props.beer.abv}</h4>
                             </Card.Subtitle>
                             <Card.Text>
-                                {props.beer.description}
+                            <h5>{props.beer.description}</h5>
                             </Card.Text>
                         </Card.Body>
                     </Card>

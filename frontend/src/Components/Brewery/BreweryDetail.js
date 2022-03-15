@@ -113,6 +113,7 @@ const BreweryDetail = (props) => {
                             <Card.Subtitle>
                                 {props.brewery.daysOfOperation}
                             </Card.Subtitle>
+                            <hr/>
                             <Card.Text>
                                 {props.brewery.description}
                             </Card.Text>
@@ -136,21 +137,22 @@ const BreweryDetail = (props) => {
                     </Breadcrumb>
                     <Card className="text-center">
                         <Card.Body>
-                            <Card.Title>{props.brewery.name}</Card.Title>
+                            <Card.Title><h1>{props.brewery.name}</h1></Card.Title>
                             <Card.Subtitle>
-                                <h5>{props.brewery.address}</h5>
+                                <h3>{props.brewery.address}</h3>
                             </Card.Subtitle>
                             <Card.Subtitle>
-                                <h5>{props.brewery.phone}</h5>
+                                <h3>{props.brewery.phone}</h3>
                             </Card.Subtitle>
                             <Card.Subtitle>
-                                {props.brewery.hoursOfOperation}
+                                <h4>{props.brewery.hoursOfOperation}</h4>
                             </Card.Subtitle>
                             <Card.Subtitle>
-                                {props.brewery.daysOfOperation}
+                                <h4>{props.brewery.daysOfOperation}</h4>
                             </Card.Subtitle>
+                            <hr/>
                             <Card.Text>
-                                {props.brewery.description}
+                                <h6>{props.brewery.description}</h6>
                             </Card.Text>
                         </Card.Body>
                     </Card>

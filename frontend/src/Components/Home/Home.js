@@ -25,10 +25,10 @@ const Home = () => {
                     <Col className="container">
                         <div className="content">
                             <div className="text">
-                                <p>Welcome to Brewsers</p>
+                                <h1>Welcome to Brewsers</h1>
                                 <Link to="/brewery">
-                                    <Button size="lg" variant="outline-warning">
-                                        Go to Brewery
+                                    <Button size="lg" variant="warning">
+                                        Continue to Breweries
                                     </Button>
                                 </Link>
                             </div>
