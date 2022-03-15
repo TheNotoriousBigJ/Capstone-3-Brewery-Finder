@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { Control, Errors, LocalForm, actions } from 'react-redux-form';
 import axios from 'axios';
 import { baseUrl } from '../../Shared/baseUrl';
+import { fetchReviews } from '../../Redux/actionCreators';
+import { connect } from 'react-redux';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -11,6 +13,9 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
+const mapDispatchToProps = (dispatch) => ({
+    fetchReviews: () => { dispatch(fetchReviews())}
+});
 
 const ReviewForm = (props) => {
 
@@ -27,6 +32,7 @@ const ReviewForm = (props) => {
             user_id: props.user.id
         }
         await axios.post(baseUrl + '/reviews', data);
+        await props.dispatch(fetchReviews());
     }
 
     return (
@@ -70,4 +76,4 @@ const ReviewForm = (props) => {
     );
 }
 
-export default ReviewForm;
+export default withRouter(connect(mapDispatchToProps)(ReviewForm));

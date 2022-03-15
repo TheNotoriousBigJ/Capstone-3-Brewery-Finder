@@ -13,7 +13,7 @@ function RenderReview({ review, user }) {
                 <Card.Body>
                     <Card.Title>{user.username}</Card.Title>
                     <Card.Text>
-                        {review.rating}
+                        Rating: {review.rating}
                     </Card.Text>
                     <Card.Text>
                         {review.review}

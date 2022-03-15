@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { Control, Errors, LocalForm, actions } from 'react-redux-form';
 import axios from 'axios';
 import { baseUrl } from '../../Shared/baseUrl';
+import { fetchBeers } from '../../Redux/actionCreators';
+import { connect } from 'react-redux';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -11,6 +13,9 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
+const mapDispatchToProps = (dispatch) => ({
+    fetchBeers: () => { dispatch(fetchBeers()) }
+});
 
 const BeerForm = (props) => {
 
@@ -32,6 +37,7 @@ const BeerForm = (props) => {
             brewery_id: thisBrewery_id
         }
         await axios.post(baseUrl + '/beers', data);
+        await props.dispatch(fetchBeers());
     }
 
     return (
@@ -130,4 +136,4 @@ const BeerForm = (props) => {
     );
 }
 
-export default BeerForm;
+export default withRouter(connect(mapDispatchToProps)(BeerForm));
